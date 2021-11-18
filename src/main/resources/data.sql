@@ -1,1 +1,1 @@
-insert into employee(employeeId, employeeName , employeeAddress,employeeEmail) values('1','Jack','USA','jack@gmail.com');
+insert into cabin(address , average_rating, description, name) values('indjija', 0.01, 'smrdi na granule', 'todorov supak');
