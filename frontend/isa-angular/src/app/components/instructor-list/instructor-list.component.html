@@ -1,0 +1,35 @@
+<div class="example-container mat-elevation-z8">
+	<div class="search-container">
+		<mat-form-field appearance="fill">
+			<input matInput placeholder="Search" (keyup)="filterData($event)">
+		</mat-form-field>
+	</div>
+
+	<mat-table matSort #table [dataSource]="dataSource">
+
+		<ng-container matColumnDef="firstName">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> First Name </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="lastName">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Last Name </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+		</ng-container>
+		
+		<ng-container matColumnDef="email">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Email </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef > </mat-header-cell>
+            <mat-cell *matCellDef="let element" >
+                 <button mat-button [routerLink]="['/instructors', element.id]">More</button>
+            </mat-cell>
+        </ng-container>
+
+		<mat-header-row *matHeaderDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</div>

@@ -1,0 +1,19 @@
+<h1>{{instructor.firstName}}'s Adventures</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Where Its Happening</th>
+            <th scope="col">Description</th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let adventure of instructor.adventures">
+            <td>{{adventure.name}}</td>
+            <td>{{adventure.address}}</td>
+            <td>{{adventure.description}}</td>
+            <td>{{adventure.averageRating}}</td>
+        </tr>
+    </tbody>
+</table>
