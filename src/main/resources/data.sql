@@ -9,11 +9,11 @@ insert into boat(name, location, description, average_rating) values ('Abyss', '
 insert into boat(name, location, description, average_rating) values ('Black Pearl', 'Stevana Branovackog 9', 'Super brodic', 8.9);
 insert into boat(name, location, description, average_rating) values ('Destiny', 'Karadjordjeva 38', 'Odlican brodic', 7.8);
 
-insert into commodity(description, price, boat_id) values ('Todor ti popusi karu', 0.0, 1);
+insert into commodity(description, price, boat_id) values ('Diving', 0.0, 1);
 
 insert into term(start_time, end_time, reserved, boat_id) values ('1-1-2012', '14-2-2013', false, 1);
 
-insert into fishing_instructor(email, first_name, last_name, password) values ('jakovljevic1999@gmail.com', 'Igor', 'Jakovljevic', 'kurchinella123');
+insert into fishing_instructor(email, first_name, last_name, password) values ('jakovljevic1999@gmail.com', 'Igor', 'Jakovljevic', 'nelanelson');
 
-insert into adventure(name, address, description, average_rating, instructor_id) values ('Jahanje kurca', 'Indjija', 'Jahanje kurcine od 30cm', 10.0, 1);
+insert into adventure(name, address, description, average_rating, instructor_id) values ('Rafting', 'Tara', 'Rafting in a raft', 10.0, 1);
 
