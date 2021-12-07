@@ -14,7 +14,7 @@ export class InstructorListComponent implements OnInit {
   instructors: FishingInstructor[]
   instructor: FishingInstructor
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['firstName', 'lastName', 'email', 'actions']
+  displayedColumns = ['firstName', 'lastName', 'email']
 
   @ViewChild(MatSort) matSort!: MatSort;
 

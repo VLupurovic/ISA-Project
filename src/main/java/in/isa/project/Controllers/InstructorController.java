@@ -15,7 +15,7 @@ import in.isa.project.Entities.Adventure;
 import in.isa.project.Entities.FishingInstructor;
 import in.isa.project.Services.InstructorService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/instructors")
 public class InstructorController {

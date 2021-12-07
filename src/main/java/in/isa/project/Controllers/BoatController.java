@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import in.isa.project.Entities.Boat;
 import in.isa.project.Services.BoatService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/boats")
 public class BoatController {

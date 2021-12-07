@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import in.isa.project.Entities.Cabin;
 import in.isa.project.Services.CabinService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/cabins")
 public class CabinController {

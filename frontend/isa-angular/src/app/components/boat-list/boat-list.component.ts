@@ -15,7 +15,7 @@ export class BoatListComponent implements OnInit {
   boats: Boat[]
   boat: Boat
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['name', 'location', 'description', 'averageRating', 'actions']  
+  displayedColumns = ['name', 'location', 'description', 'averageRating'] ; 
 
   @ViewChild(MatSort) matSort!: MatSort;
 
@@ -39,8 +39,5 @@ export class BoatListComponent implements OnInit {
     );
   }
 
-  onClick(boat: Boat){
-    this.router.navigate(['/api/boats', boat.id]);
-  }
 
 }

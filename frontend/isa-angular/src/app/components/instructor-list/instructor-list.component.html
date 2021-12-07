@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div class="example-container mat-elevation-z8">
 	<div class="search-container">
 		<mat-form-field appearance="fill">
@@ -9,7 +11,7 @@
 
 		<ng-container matColumnDef="firstName">
 			<mat-header-cell mat-sort-header *matHeaderCellDef> First Name </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+			<mat-cell *matCellDef="let element" [routerLink]="['/instructors', element.id]"> {{element.firstName}} </mat-cell>
 		</ng-container>
 
 		<ng-container matColumnDef="lastName">
@@ -18,18 +20,11 @@
 		</ng-container>
 		
 		<ng-container matColumnDef="email">
-			<mat-header-cell mat-sort-header *matHeaderCellDef> Email </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
 			<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
 		</ng-container>
 
-		<ng-container matColumnDef="actions">
-            <mat-header-cell *matHeaderCellDef > </mat-header-cell>
-            <mat-cell *matCellDef="let element" >
-                 <button mat-button [routerLink]="['/instructors', element.id]">More</button>
-            </mat-cell>
-        </ng-container>
-
-		<mat-header-row *matHeaderDef="displayedColumns"></mat-header-row>
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 	</mat-table>
 </div>

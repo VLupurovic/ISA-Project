@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import in.isa.project.Entities.Adventure;
 import in.isa.project.Services.AdventureService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/adventures")
 public class AdventureController {

@@ -22,6 +22,7 @@ public class Adventure {
     private String description;
     private float averageRating;
 
+    @ManyToOne
     @JoinColumn(name = "instructor_id")
     @JsonIgnore
     private FishingInstructor instructor;

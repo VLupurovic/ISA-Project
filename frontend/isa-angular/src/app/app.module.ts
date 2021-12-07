@@ -1,3 +1,5 @@
+import { ConfirmEqualValidatorDirective } from './components/register-from/confirm-equal-validator.directive';
+import { ValidateEqualModule } from 'ng-validate-equal';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
@@ -15,7 +17,12 @@ import { BoatInfoComponent } from './components/boat-info/boat-info.component';
 import { InstructorListComponent } from './components/instructor-list/instructor-list.component';
 import { InstructorInfoComponent } from './components/instructor-info/instructor-info.component';
 import { AdventureListComponent } from './components/adventure-list/adventure-list.component';
-
+import { RegisterFromComponent } from './components/register-from/register-from.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,14 @@ import { AdventureListComponent } from './components/adventure-list/adventure-li
     BoatInfoComponent,
     InstructorListComponent,
     InstructorInfoComponent,
-    AdventureListComponent
+    AdventureListComponent,
+    RegisterFromComponent,
+    ConfirmationComponent,
+    LoginFormComponent,
+    ProfileComponent,
+    NavbarComponent,
+    DashboardComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -37,7 +51,8 @@ import { AdventureListComponent } from './components/adventure-list/adventure-li
     BrowserAnimationsModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ValidateEqualModule
   ],
   providers: [],
   bootstrap: [AppComponent]

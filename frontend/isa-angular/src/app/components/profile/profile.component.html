@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<form>
+    <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="email" [(ngModel)]="loggedUser.email" class="form-control" id="inputEmail" name="email"
+            placeholder="Enter email" readonly>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" [(ngModel)]="loggedUser.password" class="form-control" id="inputPassword" name="pass"
+            placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="inputFirstName">First Name</label>
+        <input type="text" [(ngModel)]="loggedUser.firstName" class="form-control" id="inputFirstName" name="first">
+    </div>
+    <div class="form-group">
+        <label for="inputLastName">Last Name</label>
+        <input type="text" [(ngModel)]="loggedUser.lastName" class="form-control" id="inputLastName" name="last">
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" [(ngModel)]="loggedUser.address" class="form-control" id="inputAddress" name="adr">
+    </div>
+    <div class="form-group">
+        <label for="inputCity">City</label>
+        <input type="text" [(ngModel)]="loggedUser.city" class="form-control" id="inputCity" name="cty">
+    </div>
+    <div class="form-group">
+        <label for="inputCountry">Country</label>
+        <input type="text" [(ngModel)]="loggedUser.country" class="form-control" id="inputCountry" name="cntry">
+    </div>
+    <div class="form-group">
+        <label for="inputPhoneNumber">Phone Number</label>
+        <input type="text" [(ngModel)]="loggedUser.phoneNumber" class="form-control" id="inputPhoneNumber"
+            name="number">
+    </div>
+    <div class="form-group">
+        <label for="points">Total points</label>
+        <input type="text" [(ngModel)]="loggedUser.points" class="form-control" id="points" readonly
+            name="points">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="updateUser()">Update</button>
+    <button type="submit" class="btn btn-danger" (click)="logOutUser()" [routerLink]="['/dashboard']">Log Out</button>
+    <button type="submit" class="btn btn-danger" (click)="deleteUser()" [routerLink]="['/dashboard']">Delete</button>
+
+</form>
