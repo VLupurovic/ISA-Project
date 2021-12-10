@@ -1,5 +1,6 @@
 package in.isa.project.Repositories;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -21,4 +22,5 @@ public interface RegisteredUserRepo extends JpaRepository<RegisteredUser, Long>{
     int enableRegisteredUser(String email);
 
     RegisteredUser findRegisteredUserById(Long id);
+    public ArrayList<RegisteredUser> findAll();
 }

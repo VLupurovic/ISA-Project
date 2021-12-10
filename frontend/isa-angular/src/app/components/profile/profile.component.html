@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<form>
+<form class="form">
     <div class="form-group">
         <label for="inputEmail">Email address</label>
         <input type="email" [(ngModel)]="loggedUser.email" class="form-control" id="inputEmail" name="email"
@@ -41,8 +41,11 @@
         <input type="text" [(ngModel)]="loggedUser.points" class="form-control" id="points" readonly
             name="points">
     </div>
+    <div class="form-group">
+        <p>Registered User</p>
+    </div>
+    <button type="submit" class="btn btn-success">See Your Rewards</button>
     <button type="submit" class="btn btn-primary" (click)="updateUser()">Update</button>
     <button type="submit" class="btn btn-danger" (click)="logOutUser()" [routerLink]="['/dashboard']">Log Out</button>
-    <button type="submit" class="btn btn-danger" (click)="deleteUser()" [routerLink]="['/dashboard']">Delete</button>
-
+    <button type="submit" class="btn btn-danger" (click)="createDeleteRequest()" [routerLink]="['/dashboard']">Delete</button>
 </form>

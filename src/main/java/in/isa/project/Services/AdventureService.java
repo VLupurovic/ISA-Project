@@ -20,4 +20,8 @@ public class AdventureService {
     public ArrayList<Adventure> getInstructorAdventures(Long id) {
         return adventureRepo.findAdventuresByInstructorId(id);
     }
+
+    public Adventure findAdventureById(Long id){
+        return adventureRepo.findAdventureById(id);
+    }
 }

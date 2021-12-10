@@ -12,15 +12,20 @@ import { AdventureListComponent } from './components/adventure-list/adventure-li
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CabinInfoComponent } from './components/cabin-info/cabin-info.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AdventureInfoComponent } from './components/adventure-info/adventure-info.component';
 
 const routes: Routes = [
   {path: 'boats', component: BoatListComponent},
   {path: 'boats/:id', component: BoatInfoComponent},
   {path: 'cabins', component: CabinListComponent},
+  {path: 'cabins/:id', component: CabinInfoComponent},
   {path: 'instructors', component: InstructorListComponent},
   {path: 'instructors/:id', component: InstructorInfoComponent},
   {path: 'adventures', component: AdventureListComponent},
-  {path: 'register', component: RegisterFromComponent},
+  {path: 'adventures/:id', component: AdventureInfoComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'confirmation', component: ConfirmationComponent},
   {path: 'login', component: LoginFormComponent},
   {path: 'profile', component: ProfileComponent},

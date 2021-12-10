@@ -1,35 +1,44 @@
 <app-navbar></app-navbar>
 
-<h1>{{boat.name}} Commodities</h1>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let commodity of boat.commodities">
-            <td>{{commodity.description}}</td>
-            <td>{{commodity.price}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="info">
+    <h1>{{boat.name}} (Rating: {{boat.averageRating}})</h1>
+    <h2>Location: {{boat.location}}</h2>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea3">Description:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7">{{boat.description}}</textarea>
+    </div>
 
-<h1>{{boat.name}} Terms</h1>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Start Time</th>
-            <th scope="col">End Time</th>
-            <th scope="col">Reserved</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let term of boat.terms">
-            <td>{{term.startTime}}</td>
-            <td>{{term.endTime}}</td>
-            <td>{{term.reserved}}</td>
-        </tr>
-    </tbody>
-</table>
+    <h3>Activities</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commodity of boat.commodities">
+                <td>{{commodity.description}}</td>
+                <td>{{commodity.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Openings</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Reserved</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let term of boat.terms">
+                <td>{{term.startTime}}</td>
+                <td>{{term.endTime}}</td>
+                <td>{{term.reserved}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

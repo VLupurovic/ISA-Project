@@ -1,6 +1,7 @@
 package in.isa.project.Services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -16,7 +17,9 @@ import org.springframework.stereotype.Service;
 import in.isa.project.Entities.LoginRequest;
 import in.isa.project.Entities.RegisteredUser;
 import in.isa.project.Entities.RegistrationRequest;
+import in.isa.project.Entities.UserDeleteRequest;
 import in.isa.project.Repositories.RegisteredUserRepo;
+import in.isa.project.Repositories.UserDeleteRequestRepo;
 import in.isa.project.Security.EmailValidator;
 import in.isa.project.Security.Confirmation.ConfirmationToken;
 import in.isa.project.Security.Confirmation.ConfirmationTokenService;
@@ -27,7 +30,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RegisteredUserService implements UserDetailsService{
     private EmailValidator emailValidator = new EmailValidator();
-    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
     
     @Autowired
     private EmailSender emailSender;
@@ -35,10 +37,20 @@ public class RegisteredUserService implements UserDetailsService{
     private ConfirmationTokenService confirmationTokenService;
     @Autowired
     private RegisteredUserRepo registeredUserRepo;
+    @Autowired
+    private UserDeleteRequestRepo userDeleteRequestRepo;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return registeredUserRepo.findByEmail(email);
+    }
+
+    public RegisteredUser findRegisteredUserById(Long id){
+        return registeredUserRepo.findRegisteredUserById(id);
+    }
+
+    public ArrayList<RegisteredUser> findAllRegisteredUsers(){
+        return registeredUserRepo.findAll();
     }
 
     public RegisteredUser updateUser(RegisteredUser user){
@@ -144,7 +156,11 @@ public class RegisteredUserService implements UserDetailsService{
         return foundUser;
     }
 
-
+    public UserDeleteRequest createDeleteRequest(Long userId){
+        UserDeleteRequest toCreate = new UserDeleteRequest(userId);
+        userDeleteRequestRepo.save(toCreate);
+        return toCreate;
+    } 
 
 
     private String buildEmail(String name, String link) {

@@ -10,6 +10,6 @@ import in.isa.project.Entities.Adventure;
 @Repository
 public interface AdventureRepo extends JpaRepository<Adventure, Long>{
     public ArrayList<Adventure> findAll();
-
     public ArrayList<Adventure> findAdventuresByInstructorId(Long id);
+    Adventure findAdventureById(Long id);
 }

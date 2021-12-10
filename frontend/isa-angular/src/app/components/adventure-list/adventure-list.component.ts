@@ -12,7 +12,7 @@ import { AdventureService } from 'src/app/services/adventure.service';
 export class AdventureListComponent implements OnInit {
   adventures: Adventure[];
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['name', 'address', 'description', 'averageRating'];
+  displayedColumns = ['name', 'address', 'averageRating'];
   
   @ViewChild(MatSort) matSort!: MatSort;
 

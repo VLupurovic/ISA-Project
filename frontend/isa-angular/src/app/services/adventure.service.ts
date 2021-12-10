@@ -14,4 +14,8 @@ export class AdventureService {
   getAllAdventures(): Observable<Adventure[]>{
     return this.httpClient.get<Adventure[]>(`${this.baseURL}`);
   }
+
+  getAdventureById(id: string | null): Observable<Adventure>{
+    return this.httpClient.get<Adventure>(`${this.baseURL}/${id}`);
+  }
 }

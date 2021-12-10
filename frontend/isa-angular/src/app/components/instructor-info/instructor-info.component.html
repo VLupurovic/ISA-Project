@@ -1,21 +1,22 @@
 <app-navbar></app-navbar>
 
-<h1>{{instructor.firstName}}'s Adventures</h1>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Where Its Happening</th>
-            <th scope="col">Description</th>
-            <th scope="col">Rating</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let adventure of instructor.adventures">
-            <td>{{adventure.name}}</td>
-            <td>{{adventure.address}}</td>
-            <td>{{adventure.description}}</td>
-            <td>{{adventure.averageRating}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="info">
+    <h1>{{instructor.firstName}}'s Adventures</h1>
+    <h3>Contact Information: {{instructor.email}}</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Where Its Happening</th>
+                <th scope="col">Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let adventure of instructor.adventures">
+                <td [routerLink]="['/adventures', adventure.id]">{{adventure.name}}</td>
+                <td>{{adventure.address}}</td>
+                <td>{{adventure.averageRating}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -19,19 +19,23 @@ export class ProfileComponent implements OnInit {
   private parseUser(){
     this.x = localStorage.getItem('loggedUser');
     this.loggedUser = JSON.parse(this.x);
-    console.log(this.loggedUser);
   }
 
   public updateUser(){
-    this.service.update(this.loggedUser).subscribe();
+    this.service.update(this.loggedUser).subscribe(
+      data => {
+        this.loggedUser = data;
+        localStorage.setItem('loggedUser', JSON.stringify(this.loggedUser))
+      }
+    );
   }
 
   public logOutUser(){
     localStorage.removeItem('loggedUser');
   }
   
-  public deleteUser(){
-    localStorage.removeItem('loggedUser');
-    this.service.delete(this.loggedUser.id).subscribe;
+  public createDeleteRequest(){
+    this.logOutUser();
+    this.service.createDeleteRequest(this.loggedUser.id).subscribe();
   }
 }

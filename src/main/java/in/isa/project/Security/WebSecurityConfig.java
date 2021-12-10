@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.tree.ExpandVetoException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,7 +29,8 @@ import lombok.AllArgsConstructor;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     
-    private RegisteredUserService registeredUserService = new RegisteredUserService();
+    @Autowired
+    private RegisteredUserService registeredUserService;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @Override

@@ -15,7 +15,7 @@ export class BoatListComponent implements OnInit {
   boats: Boat[]
   boat: Boat
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['name', 'location', 'description', 'averageRating'] ; 
+  displayedColumns = ['name', 'location', 'averageRating'] ; 
 
   @ViewChild(MatSort) matSort!: MatSort;
 

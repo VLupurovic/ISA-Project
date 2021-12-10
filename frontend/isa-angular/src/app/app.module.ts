@@ -23,6 +23,9 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CabinInfoComponent } from './components/cabin-info/cabin-info.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AdventureInfoComponent } from './components/adventure-info/adventure-info.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ProfileComponent,
     NavbarComponent,
     DashboardComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    CabinInfoComponent,
+    RegisterComponent,
+    AdventureInfoComponent
   ],
   imports: [
     BrowserModule,

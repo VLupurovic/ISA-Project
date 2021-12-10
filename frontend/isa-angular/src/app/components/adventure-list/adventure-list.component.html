@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 
-<div class="example-container mat-elevation-z8">
+<h1 class="title">Adventures</h1>
+<div class="list example-container mat-elevation-z8">
 	<div class="search-container">
 		<mat-form-field appearance="fill">
 			<input matInput placeholder="Search" (keyup)="filterData($event)">
@@ -11,17 +12,12 @@
 
 		<ng-container matColumnDef="name">
 			<mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+			<mat-cell *matCellDef="let element" [routerLink]="['/adventures', element.id]"> {{element.name}} </mat-cell>
 		</ng-container>
 
 		<ng-container matColumnDef="address">
 			<mat-header-cell mat-sort-header *matHeaderCellDef> Address </mat-header-cell>
 			<mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
-		</ng-container>
-		
-		<ng-container matColumnDef="description">
-			<mat-header-cell mat-sort-header *matHeaderCellDef> Description </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
 		</ng-container>
 
 		<ng-container matColumnDef="averageRating">

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.isa.project.Entities.Adventure;
 import in.isa.project.Entities.FishingInstructor;
 import in.isa.project.Services.InstructorService;
 

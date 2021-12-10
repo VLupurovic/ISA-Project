@@ -13,7 +13,7 @@ export class CabinListComponent implements OnInit {
 
   cabins: Cabin[]
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['name', 'address', 'description', 'averageRating'];
+  displayedColumns = ['name', 'address', 'averageRating'];
 
   @ViewChild(MatSort) matSort!: MatSort;
 

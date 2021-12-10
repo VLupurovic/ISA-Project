@@ -30,4 +30,10 @@ public class AdventureController {
     public ResponseEntity<ArrayList<Adventure>> getInstructorAdventures(@PathVariable("instructor_id") Long id){
         return new ResponseEntity<ArrayList<Adventure>>(adventureService.getInstructorAdventures(id), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Adventure> getAdventureById (@PathVariable("id") Long id){
+        Adventure adventure = adventureService.findAdventureById(id);
+        return new ResponseEntity<Adventure>(adventure, HttpStatus.OK);
+    }
 }

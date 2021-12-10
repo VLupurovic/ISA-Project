@@ -8,9 +8,23 @@
     </div>
     <div class="form-group">
         <label for="inputPassword">Password</label>
-        <input type="password" [(ngModel)]="request.password" class="form-control" id="inputPassword" name="password"
-            placeholder="Password">
+        <input type="password" name="password" placeholder="Password" #modelPassowrd="ngModel" [(ngModel)]="request.password" class="form-control">
     </div>
+    <div class="form-group">
+        <label for="inputPassword">Confirm Password</label>
+        <input type="password" #modelConfirmPassowrd="ngModel" [(ngModel)]="confirmPassword" class="form-control" id="inputPassword" name="confirmPassword" 
+            required validate>
+    </div>
+
+    <div *ngIf="(modelConfirmPassowrd.dirty || modelConfirmPassowrd.touched) &&
+		modelConfirmPassowrd.invalid">
+
+		<p style="color:red" *ngIf="modelConfirmPassowrd.hasError('notEqual') &&
+			modelPassowrd.valid">
+			Passwords Don't Match
+		</p>
+	</div>
+
     <div class="form-group">
         <label for="inputFirstName">First Name</label>
         <input type="text" [(ngModel)]="request.firstName" class="form-control" id="inputFirstName" name="first">

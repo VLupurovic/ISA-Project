@@ -15,4 +15,8 @@ export class CabinService {
   getAllCabins(): Observable<Cabin[]>{
     return this.httpClient.get<Cabin[]>(`${this.baseURL}`);
   }
+
+  getCabinById(id: string | null): Observable<Cabin>{
+    return this.httpClient.get<Cabin>(`${this.baseURL}/${id}`);
+  }
 }

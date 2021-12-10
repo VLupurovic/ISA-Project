@@ -25,7 +25,11 @@ export class UserService {
     return this.httpClient.put<RegisteredUser>(`${this.baseURL}`, user);
   }
 
-  delete(userId: number): Observable<RegisteredUser>{
-    return this.httpClient.delete<RegisteredUser>(`${this.baseURL}/${userId}`);
+  createDeleteRequest(userId: number): Observable<void>{
+    return this.httpClient.post<void>(`${this.baseURL}/delete`, userId);
+  }
+
+  getById(userId: number): Observable<RegisteredUser>{
+    return this.httpClient.get<RegisteredUser>(`${this.baseURL}/${userId}`);
   }
 }
