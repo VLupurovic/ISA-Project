@@ -1,4 +1,4 @@
-package in.isa.project.Entities;
+package in.isa.project.Entities.Reviews;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +14,7 @@ public class AdventureReview {
     private Long adventureId;
     private float rating;
     private String review;
+    private boolean approved = false;
 
     public void Update(AdventureReview areview){
         registeredUserId = areview.getRegisteredUserId();
@@ -50,6 +51,11 @@ public class AdventureReview {
     public void setReview(String review) {
         this.review = review;
     }
+    public boolean isApproved() {
+        return approved;
+    }
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
 
-    
 }

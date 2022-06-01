@@ -1,8 +1,10 @@
+import { FishingInstructor } from './../models/fishing-instructor';
 import { AdventureReview } from './../models/adventure-review';
 import { Adventure } from './../models/adventure';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { InstructorReview } from '../models/instructor-review';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +29,14 @@ export class AdventureService {
 
 
   createAdventureReview(review: AdventureReview): Observable<AdventureReview>{
-    console.log("zzzzz")
-    console.log(`${this.baseURL}/rate`)
     return this.httpClient.post<AdventureReview>(`${this.baseURL}/rate`, review)
+  }
+
+  createInstructorReview(review: InstructorReview): Observable<InstructorReview>{
+    return this.httpClient.post<InstructorReview>(`${this.baseURL}/rate/instuctor`, review)
+  }
+
+  getInstructorById(id: number): Observable<FishingInstructor>{
+    return this.httpClient.get<FishingInstructor>(`${this.baseURL}/instructor/${id}`)
   }
 }

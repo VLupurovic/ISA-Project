@@ -15,6 +15,10 @@ public class BoatOwner extends User{
         super(firstName, lastName, email, password);
     }
 
+    public BoatOwner() {
+        super();
+    }
+
     public Long getId() {
         return id;
     } 

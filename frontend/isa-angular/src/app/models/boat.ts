@@ -9,4 +9,5 @@ export class Boat {
     averageRating: number;
     commodities: Commodity[];
     terms: Term[];
+    boatOwnerId: number;
 }

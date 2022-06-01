@@ -1,14 +1,14 @@
-insert into fishing_instructor(email, first_name, last_name, password) values ('visnjic1999@gmail.com', 'Visnja', 'Visnjic', 'sifra1');
-insert into fishing_instructor(email, first_name, last_name, password) values ('markovic1999@gmail.com', 'Marko', 'Markovic', 'sifra2');
-insert into fishing_instructor(email, first_name, last_name, password) values ('djordjevic1999@gmail.com', 'Djordje', 'Djordjevic', 'sifra3');
+insert into fishing_instructor(email, first_name, last_name, password, average_rating) values ('visnjic1999@gmail.com', 'Visnja', 'Visnjic', 'sifra1', 0);
+insert into fishing_instructor(email, first_name, last_name, password, average_rating) values ('markovic1999@gmail.com', 'Marko', 'Markovic', 'sifra2', 0);
+insert into fishing_instructor(email, first_name, last_name, password, average_rating) values ('djordjevic1999@gmail.com', 'Djordje', 'Djordjevic', 'sifra3', 0);
 
-insert into boat_owner(email, first_name, last_name, password) values ('vasic1999@gmail.com', 'Vasa', 'Vasic', 'sifra1');
-insert into boat_owner(email, first_name, last_name, password) values ('vidic1999@gmail.com', 'Vida', 'Vidic', 'sifra2');
-insert into boat_owner(email, first_name, last_name, password) values ('slobic1999@gmail.com', 'Sloba', 'Slobic', 'sifra3');
+insert into boat_owner(email, first_name, last_name, password, average_rating) values ('vasic1999@gmail.com', 'Vasa', 'Vasic', 'sifra1', 0);
+insert into boat_owner(email, first_name, last_name, password, average_rating) values ('vidic1999@gmail.com', 'Vida', 'Vidic', 'sifra2', 0);
+insert into boat_owner(email, first_name, last_name, password, average_rating) values ('slobic1999@gmail.com', 'Sloba', 'Slobic', 'sifra3', 0);
 
-insert into cabin_owner(email, first_name, last_name, password) values ('sule1999@gmail.com', 'Sule', 'Sulic', 'sifra1');
-insert into cabin_owner(email, first_name, last_name, password) values ('todorcevic1999@gmail.com', 'Todor', 'Todorcevic', 'sifra2');
-insert into cabin_owner(email, first_name, last_name, password) values ('nikolic1999@gmail.com', 'Nikola', 'Nikolic', 'sifra3');
+insert into cabin_owner(email, first_name, last_name, password, average_rating) values ('sule1999@gmail.com', 'Sule', 'Sulic', 'sifra1', 0);
+insert into cabin_owner(email, first_name, last_name, password, average_rating) values ('todorcevic1999@gmail.com', 'Todor', 'Todorcevic', 'sifra2', 0);
+insert into cabin_owner(email, first_name, last_name, password, average_rating) values ('nikolic1999@gmail.com', 'Nikola', 'Nikolic', 'sifra3', 0);
 
 insert into adventure(name, address, description, average_rating, instructor_id) values ('Rafting', 'Tara', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."', 0, 1);
 insert into adventure(name, address, description, average_rating, instructor_id) values ('Rowing', 'Kopaonik', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."', 0, 1);
@@ -56,7 +56,7 @@ insert into cabin_term(cabin_id, start_time, end_time, price_per_day, is_promo, 
 
 
 /*Reservations*/
-insert into registered_user(address, city, country, phone_number, points, first_name, last_name, email, password, enabled) values ('asd', 'asd', 'asd', '123', 100, 'asd', 'asd', 'jakovljevic1999@gmail.com', 'asd', true);
+insert into registered_user(address, city, country, phone_number, points, first_name, last_name, email, password, enabled, average_rating) values ('asd', 'asd', 'asd', '123', 100, 'asd', 'asd', 'jakovljevic1999@gmail.com', 'asd', true, 0);
 
 insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 1, '2020-01-01', '2020-01-10', 1000);
 insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 2, '2020-02-02', '2020-02-10', 1000);

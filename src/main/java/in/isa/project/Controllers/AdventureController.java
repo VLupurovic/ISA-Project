@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import in.isa.project.Entities.Adventure;
-import in.isa.project.Entities.AdventureReview;
+import in.isa.project.Entities.FishingInstructor;
+import in.isa.project.Entities.Reviews.AdventureReview;
+import in.isa.project.Entities.Reviews.InstructorReview;
 import in.isa.project.Services.AdventureService;
 
 @CrossOrigin(origins = "*")
@@ -50,5 +52,16 @@ public class AdventureController {
     @PostMapping("/rate")
     public ResponseEntity<AdventureReview> createAdventureReview(@RequestBody AdventureReview review){
         return new ResponseEntity<AdventureReview>(adventureService.createAdventureReview(review), HttpStatus.OK);
+    }
+
+    @PostMapping("/rate/instuctor")
+    public ResponseEntity<InstructorReview> createInstructorReview(@RequestBody InstructorReview review){
+        return new ResponseEntity<InstructorReview>(adventureService.createInstructorReview(review), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/instructor/{id}")
+    public ResponseEntity<FishingInstructor> getInstructorById(@PathVariable("id") Long id){
+        return new ResponseEntity<FishingInstructor>(adventureService.getInstructorById(id), HttpStatus.OK);
     }
 }

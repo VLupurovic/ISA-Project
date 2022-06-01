@@ -4,4 +4,5 @@ export class Cabin {
     address:string;
     description:string;
     averageRating:number;
+    cabinOwnerId: number;
 }

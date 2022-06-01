@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import in.isa.project.Entities.Cabin;
+import in.isa.project.Entities.CabinOwner;
+import in.isa.project.Entities.Reviews.CabinOwnerReview;
+import in.isa.project.Entities.Reviews.CabinReview;
 import in.isa.project.Services.CabinService;
 
 @CrossOrigin(origins = "*")
@@ -54,5 +57,23 @@ public class CabinController {
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
         cabinService.deleteCabin(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
+    @PostMapping("/rate")
+    public ResponseEntity<CabinReview> createCabinReview(@RequestBody CabinReview review){
+        return new ResponseEntity<CabinReview>(cabinService.createCabinReview(review), HttpStatus.OK);
+    }
+
+    @PostMapping("/rate/owner")
+    public ResponseEntity<CabinOwnerReview> createCabinOwnerReview(@RequestBody CabinOwnerReview review){
+        return new ResponseEntity<CabinOwnerReview>(cabinService.createCabinOwnerReview(review), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/owner/{id}")
+    public ResponseEntity<CabinOwner> getOwnerById(@PathVariable("id") Long id){
+        return new ResponseEntity<CabinOwner>(cabinService.getOwnerById(id), HttpStatus.OK);
     }
 }

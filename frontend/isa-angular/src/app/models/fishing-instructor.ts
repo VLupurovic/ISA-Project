@@ -5,5 +5,6 @@ export class FishingInstructor {
     lastName: string;
     email: string;
     password: string;
+    averageRating: number;
     adventures: Adventure[];
 }

@@ -5,5 +5,5 @@ export class Adventure {
     address: string;
     description: string;
     averageRating: number;
-    instructor: FishingInstructor;
+    instructorId: number;
 }

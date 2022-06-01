@@ -1,1 +1,19 @@
-<p>past-boat-reservation-info works!</p>
+<app-navbar></app-navbar>
+
+<div class="info">
+    <h1>{{boatName}}</h1>
+    <h2>Start time: {{reservation.startTime}}</h2>
+    <h2>End time: {{reservation.endTime}}</h2>
+    <div class="form-group">
+        <label for="eexampleInputEmail1">Rate: (1 - 10)</label>
+        <input class="form-control" id="exampleInputEmail1"  placeholder="Leave a rating from 1 to 10" [(ngModel)]="review.rating">
+        <label for="exampleFormControlTextarea3">Leave a review:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" [(ngModel)]="review.review"></textarea>
+
+        <label for="eexampleInputEmail1">Rate {{owner.firstName}} {{owner.lastName}}: (1 - 10)</label>
+        <input class="form-control" id="exampleInputEmail1"  placeholder="Leave a rating from 1 to 10" [(ngModel)]="ownerReview.rating">
+        <label for="exampleFormControlTextarea3">Leave a review for the owner:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" [(ngModel)]="ownerReview.review"></textarea>
+        <button type="button" class="btn btn-primary" (click)="leaveRating(reservation.id)">Rate</button>
+    </div>
+</div>

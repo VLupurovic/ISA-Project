@@ -15,13 +15,22 @@ public class User implements UserDetails{
     private String lastName;
     private String email;
     private String password;
-    private Boolean enabled = false; 
+    private Boolean enabled = false;
+    private float averageRating = 0;
     
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;;
+    }
+
+    public float getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(float averageRating) {
+        this.averageRating = averageRating;
     }
 
     public Boolean getEnabled() {

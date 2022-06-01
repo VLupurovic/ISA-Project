@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.isa.project.Entities.Adventure;
-import in.isa.project.Entities.AdventureReview;
 import in.isa.project.Entities.AdventureTerm;
+import in.isa.project.Entities.FishingInstructor;
+import in.isa.project.Entities.Reviews.AdventureReview;
+import in.isa.project.Entities.Reviews.InstructorReview;
 import in.isa.project.Repositories.AdventureRepo;
 import in.isa.project.Repositories.AdventureReviewRepo;
 import in.isa.project.Repositories.AdventureTermRepo;
+import in.isa.project.Repositories.InstructorRepo;
+import in.isa.project.Repositories.InstructorReviewRepo;
 
 @Service
 public class AdventureService {
@@ -20,6 +24,10 @@ public class AdventureService {
     private AdventureTermRepo adventureTermRepo;
     @Autowired
     private AdventureReviewRepo adventureReviewRepo;
+    @Autowired
+    private InstructorRepo instructorRepo;
+    @Autowired
+    private InstructorReviewRepo instructorReviewRepo;
 
     public ArrayList<Adventure> getAllAdventures(){
         return adventureRepo.findAll();
@@ -53,5 +61,24 @@ public class AdventureService {
         adventureRepo.save(adventure);
 
         return adventureReviewRepo.save(newReview);
+    }
+
+    public InstructorReview createInstructorReview(InstructorReview review){
+        if(review.getRating() > 10 || review.getRating() < 1){
+            throw new IllegalStateException("Rating not withing 1 - 10 range.");
+        }
+        
+        InstructorReview newReview = new InstructorReview();
+        newReview.Update(review);
+
+        FishingInstructor instructor = instructorRepo.getById(review.getFishingInstructorId());
+        instructor.setAverageRating((instructor.getAverageRating() + review.getRating()) / (instructorReviewRepo.count() + 1));
+        instructorRepo.save(instructor);
+
+        return instructorReviewRepo.save(newReview);
+    }
+
+    public FishingInstructor getInstructorById(Long id){
+        return instructorRepo.findById(id).get();
     }
 }

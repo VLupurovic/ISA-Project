@@ -15,6 +15,10 @@ public class CabinOwner extends User{
         super(firstName, lastName, email, password);
     }
 
+    public CabinOwner() {
+        super();
+    }
+
     public Long getId() {
         return id;
     } 
