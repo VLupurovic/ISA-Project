@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import in.isa.project.Entities.Adventure;
 import in.isa.project.Entities.FishingInstructor;
 import in.isa.project.Exceptions.CabinNotFoundException;
 import in.isa.project.Repositories.InstructorRepo;

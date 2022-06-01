@@ -2,7 +2,6 @@ package in.isa.project.Services;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import in.isa.project.Entities.LoginRequest;
@@ -60,7 +58,6 @@ public class RegisteredUserService implements UserDetailsService{
     }
 
     public RegisteredUser deleteUser(Long id){
-        System.out.println("servis");
         RegisteredUser toDelete = registeredUserRepo.findRegisteredUserById(id);
         registeredUserRepo.delete(toDelete);
         return toDelete;

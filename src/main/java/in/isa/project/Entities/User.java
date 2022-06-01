@@ -21,7 +21,7 @@ public class User implements UserDetails{
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.password = password;;
     }
 
     public Boolean getEnabled() {

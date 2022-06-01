@@ -1,4 +1,3 @@
-import { Commodity } from './../../models/commodity';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BoatService } from 'src/app/services/boat.service';
@@ -14,10 +13,10 @@ export class BoatInfoComponent implements OnInit{
   constructor(private service: BoatService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getBoatById(this.activatedRoute.snapshot.paramMap.get('id'))
+    this.getBoatById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
   }
 
-  private getBoatById(id: string | null){
+  private getBoatById(id: number){
     this.service.getBoatById(id).subscribe(
       data => {
         this.boat = data;

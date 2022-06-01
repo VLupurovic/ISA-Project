@@ -26,6 +26,19 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CabinInfoComponent } from './components/cabin-info/cabin-info.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdventureInfoComponent } from './components/adventure-info/adventure-info.component';
+import { TermListComponent } from './components/term-list/term-list.component';
+import { MatSelectModule } from '@angular/material/select';
+import { TermInfoComponent } from './components/term-info/term-info.component';
+import { AdventureTermInfoComponent } from './components/adventure-term-info/adventure-term-info.component';
+import { BoatTermInfoComponent } from './components/boat-term-info/boat-term-info.component';
+import { CabinTermInfoComponent } from './components/cabin-term-info/cabin-term-info.component';
+import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
+import { UpcomingReservationsListComponent } from './components/upcoming-reservations-list/upcoming-reservations-list.component';
+import { PastReservationsListComponent } from './components/past-reservations-list/past-reservations-list.component';
+import { PastReservationInfoComponent } from './components/past-reservation-info/past-reservation-info.component';
+import { PastAdventureReservationInfoComponent } from './components/past-adventure-reservation-info/past-adventure-reservation-info.component';
+import { PastBoatReservationInfoComponent } from './components/past-boat-reservation-info/past-boat-reservation-info.component';
+import { PastCabinReservationInfoComponent } from './components/past-cabin-reservation-info/past-cabin-reservation-info.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +58,19 @@ import { AdventureInfoComponent } from './components/adventure-info/adventure-in
     ConfirmEqualValidatorDirective,
     CabinInfoComponent,
     RegisterComponent,
-    AdventureInfoComponent
+    AdventureInfoComponent,
+    TermListComponent,
+    TermInfoComponent,
+    AdventureTermInfoComponent,
+    BoatTermInfoComponent,
+    CabinTermInfoComponent,
+    PromotionsListComponent,
+    UpcomingReservationsListComponent,
+    PastReservationsListComponent,
+    PastReservationInfoComponent,
+    PastAdventureReservationInfoComponent,
+    PastBoatReservationInfoComponent,
+    PastCabinReservationInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +83,8 @@ import { AdventureInfoComponent } from './components/adventure-info/adventure-in
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    ValidateEqualModule
+    ValidateEqualModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

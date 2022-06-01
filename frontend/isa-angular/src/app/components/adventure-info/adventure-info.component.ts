@@ -14,10 +14,10 @@ export class AdventureInfoComponent implements OnInit {
   constructor(private service: AdventureService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAdventureById(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.getAdventureById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
   }
 
-  private getAdventureById(id: string | null){
+  private getAdventureById(id: number){
     this.service.getAdventureById(id).subscribe(
       (data:Adventure) => this.adventure = data
     );

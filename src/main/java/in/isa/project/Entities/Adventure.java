@@ -1,34 +1,34 @@
 package in.isa.project.Entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Adventure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "adventure_id")
     private Long id;
     private String name;
     private String address;
     private String description;
     private float averageRating;
 
-    @ManyToOne
-    @JoinColumn(name = "instructor_id")
-    @JsonIgnore
-    private FishingInstructor instructor;
+    private Long instructorId;
 
     public Long getId() {
         return id;
+    }
+
+    public Long getInstructorId() {
+        return instructorId;
+    }
+
+    public void setInstructorId(Long instructorId) {
+        this.instructorId = instructorId;
     }
 
     public void setId(Long id) {
@@ -67,13 +67,6 @@ public class Adventure {
         this.averageRating = averageRating;
     }
 
-    public FishingInstructor getInstructor() {
-        return instructor;
-    }
-
-    public void setInstructor(FishingInstructor instructor) {
-        this.instructor = instructor;
-    }
 
     
 }

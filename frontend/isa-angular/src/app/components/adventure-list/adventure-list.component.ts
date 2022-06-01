@@ -29,7 +29,6 @@ export class AdventureListComponent implements OnInit {
   private getAllAdventures(){
     this.service.getAllAdventures().subscribe(
       data => {
-        console.log(data);
         this.adventures = data;
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort = this.matSort;

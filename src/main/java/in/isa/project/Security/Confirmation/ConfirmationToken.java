@@ -2,18 +2,14 @@ package in.isa.project.Security.Confirmation;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import in.isa.project.Entities.RegisteredUser;
 import in.isa.project.Entities.User;
-import lombok.NoArgsConstructor;
 
 @Entity
 public class ConfirmationToken {

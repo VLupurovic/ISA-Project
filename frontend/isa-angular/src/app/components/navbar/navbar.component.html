@@ -25,19 +25,19 @@
           <a class="nav-link" [routerLink]="['/login']">Log In</a>
         </li>
         <li *ngIf="loggedIn" class="nav-item">
-          <a class="nav-link">Reservation History</a>
+          <a class="nav-link" [routerLink]="['/terms']">Make Reservation</a>
         </li>
         <li *ngIf="loggedIn" class="nav-item">
-          <a class="nav-link">Upcoming Reservations</a>
+          <a class="nav-link" [routerLink]="['/promotions']">Promotions</a>
         </li>
         <li *ngIf="loggedIn" class="nav-item">
-          <a class="nav-link">Penalties</a>
+          <a class="nav-link" [routerLink]="['/upcoming-reservations']">Upcoming Reservations</a>
+        </li>
+        <li *ngIf="loggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/past-reservations']">Reservation History</a>
         </li>
         <li *ngIf="loggedIn" class="nav-item">
           <a class="nav-link">Subscriptions</a>
-        </li>
-        <li *ngIf="loggedIn" class="nav-item">
-          <a class="nav-link">Complaints</a>
         </li>
         <li *ngIf="loggedIn" class="nav-item">
           <a class="nav-link" [routerLink]="['/profile']">Profile</a>

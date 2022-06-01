@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="info">
+    <h1>{{adventureTerm.name}} (Rating: {{adventureTerm.rating}})</h1>
+    <h2>Available From {{adventureTerm.startTime}} Until {{adventureTerm.endTime}}</h2>
+    <h2>Price Per Day: {{adventureTerm.pricePerDay}}</h2>
+
+    <input type="text" placeholder="Start Date" [(ngModel)]="startDateString">
+    <input type="text" placeholder="Duration In Days" [(ngModel)]="duration">
+    <button type="submit" class="btn btn-primary" (click)="createReservation()" >Reserve</button>
+</div>

@@ -24,6 +24,17 @@ public class Boat {
     private List<Commodity> commodities;
     @OneToMany(mappedBy = "boat")
     private List<Term> terms;
+    private Long boatOwnerId;
+
+    
+
+    public Long getBoatOwnerId() {
+        return boatOwnerId;
+    }
+
+    public void setBoatOwnerId(Long boatOwnerId) {
+        this.boatOwnerId = boatOwnerId;
+    }
 
     public void Update(Boat boat){
         name = boat.name;

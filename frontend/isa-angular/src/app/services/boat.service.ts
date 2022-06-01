@@ -15,7 +15,7 @@ export class BoatService {
     return this.httpClient.get<Boat[]>(`${this.baseURL}`);
   }
 
-  getBoatById(id: string | null): Observable<Boat>{
+  getBoatById(id: number): Observable<Boat>{
     return this.httpClient.get<Boat>(`${this.baseURL}/${id}`);
   }
 }

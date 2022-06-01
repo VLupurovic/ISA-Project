@@ -14,10 +14,10 @@ export class CabinInfoComponent implements OnInit {
   constructor(private service: CabinService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getCabinById(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.getCabinById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
   }
 
-  private getCabinById(id: string | null){
+  private getCabinById(id: number){
     this.service.getCabinById(id).subscribe(
       (data:Cabin) => this.cabin = data
     );

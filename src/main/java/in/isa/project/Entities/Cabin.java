@@ -1,4 +1,5 @@
 package in.isa.project.Entities;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,13 +9,13 @@ import javax.persistence.Id;
 public class Cabin{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(nullable = false, updatable = false)
+    @Column(name = "cabin_id")
     private Long id;
     private String name;
     private String address;
     private String description;
     private float averageRating;
-
+    private Long cabinOwnerId;
 
     public void Update(Cabin cabin){
         name = cabin.name;
@@ -22,6 +23,14 @@ public class Cabin{
         description = cabin.description;
     }
 
+
+    public Long getCabinOwnerId() {
+        return cabinOwnerId;
+    }
+
+    public void setCabinOwnerId(Long cabinOwnerId) {
+        this.cabinOwnerId = cabinOwnerId;
+    }
 
     public Long getId() {
         return id;

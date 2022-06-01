@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<h1 class="title">Reservation History</h1>
+
+<div class="list example-container mat-elevation-z8">
+    <div class="search-container">
+		<mat-form-field appearance="fill">
+			<mat-select>
+				<mat-option value="adventures" (click)="getUserPastAdventureReservations()">Adventures</mat-option>
+				<mat-option value="cabins" (click)="getUserPastCabinReservations()">Cabins</mat-option>
+				<mat-option value="boats" (click)="getUserPastBoatReservations()">Boats</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+
+	<mat-table matSort #table [dataSource]="dataSource">
+        <ng-container matColumnDef="name" >
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+			<div *ngIf="adventures == true">
+				<mat-cell *matCellDef="let element"> {{element.adventureName}} </mat-cell>
+			</div>
+			<div *ngIf="cabins == true">
+				<mat-cell *matCellDef="let element"> {{element.cabinName}} </mat-cell>
+			</div>
+			<div *ngIf="boats == true">
+				<mat-cell *matCellDef="let element"> {{element.boatName}} </mat-cell>
+			</div>
+		</ng-container>
+
+
+		<ng-container matColumnDef="startTime">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Start Time </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.startTime}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="endTime">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> End Time </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.endTime}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="price">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Total Price </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="buttons">
+			<mat-header-cell mat-sort-header *matHeaderCellDef></mat-header-cell>
+			<div *ngIf="adventures == true">
+				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-adventure-reservation', element.id]">Leave Rating</button> </mat-cell>
+			</div>
+			<div *ngIf="cabins == true">
+				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-cabin-reservation', element.id]">Leave Rating</button> </mat-cell>
+			</div>
+			<div *ngIf="boats == true">
+				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-boat-reservation', element.id]">Leave Rating</button> </mat-cell>
+			</div>
+		</ng-container>
+       
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</div>

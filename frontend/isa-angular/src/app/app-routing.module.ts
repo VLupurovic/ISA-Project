@@ -1,3 +1,4 @@
+import { TermListComponent } from './components/term-list/term-list.component';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFromComponent } from './components/register-from/register-from.component';
@@ -15,6 +16,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CabinInfoComponent } from './components/cabin-info/cabin-info.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdventureInfoComponent } from './components/adventure-info/adventure-info.component';
+import { AdventureTermInfoComponent } from './components/adventure-term-info/adventure-term-info.component';
+import { BoatTermInfoComponent } from './components/boat-term-info/boat-term-info.component';
+import { CabinTermInfoComponent } from './components/cabin-term-info/cabin-term-info.component';
+import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
+import { UpcomingReservationsListComponent } from './components/upcoming-reservations-list/upcoming-reservations-list.component';
+import { PastReservationsListComponent } from './components/past-reservations-list/past-reservations-list.component';
+import { PastAdventureReservationInfoComponent } from './components/past-adventure-reservation-info/past-adventure-reservation-info.component';
+import { PastBoatReservationInfoComponent } from './components/past-boat-reservation-info/past-boat-reservation-info.component';
+import { PastCabinReservationInfoComponent } from './components/past-cabin-reservation-info/past-cabin-reservation-info.component';
 
 const routes: Routes = [
   {path: 'boats', component: BoatListComponent},
@@ -29,7 +39,17 @@ const routes: Routes = [
   {path: 'confirmation', component: ConfirmationComponent},
   {path: 'login', component: LoginFormComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'dashboard', component: DashboardComponent}
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'terms', component: TermListComponent},
+  {path: 'adventure-terms/:id', component: AdventureTermInfoComponent},
+  {path: 'boat-terms/:id', component: BoatTermInfoComponent},
+  {path: 'cabin-terms/:id', component: CabinTermInfoComponent},
+  {path: 'promotions', component: PromotionsListComponent},
+  {path: 'upcoming-reservations', component: UpcomingReservationsListComponent},
+  {path: 'past-reservations', component: PastReservationsListComponent},
+  {path: 'past-adventure-reservation/:id', component: PastAdventureReservationInfoComponent},
+  {path: 'past-boat-reservation/:id', component: PastBoatReservationInfoComponent},
+  {path: 'past-cabin-reservation/:id', component: PastCabinReservationInfoComponent},
 ];
 
 @NgModule({
