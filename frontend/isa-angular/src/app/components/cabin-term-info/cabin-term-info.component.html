@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="info">
+    <h1>{{cabinTerm.name}} (Rating: {{cabinTerm.rating}})</h1>
+    <h2>Available From {{cabinTerm.startTime}} Until {{cabinTerm.endTime}}</h2>
+    <h2>Price Per Day: {{cabinTerm.pricePerDay}}</h2>
+
+    <input type="text" placeholder="Start Date" [(ngModel)]="startDateString">
+    <input type="text" placeholder="Duration In Days" [(ngModel)]="duration">
+    <button type="submit" class="btn btn-primary" (click)="createReservation()" >Reserve</button>
+</div>

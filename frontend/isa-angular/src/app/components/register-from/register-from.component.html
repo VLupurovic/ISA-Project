@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<form>
+    <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="email" [(ngModel)]="request.email" class="form-control" id="inputEmail" name="email"
+            placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" placeholder="Password" #modelPassowrd="ngModel" [(ngModel)]="request.password" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Confirm Password</label>
+        <input type="password" #modelConfirmPassowrd="ngModel" [(ngModel)]="confirmPassword" class="form-control" id="inputPassword" name="confirmPassword" 
+            required validate>
+    </div>
+
+    <div *ngIf="(modelConfirmPassowrd.dirty || modelConfirmPassowrd.touched) &&
+		modelConfirmPassowrd.invalid">
+
+		<p style="color:red" *ngIf="modelConfirmPassowrd.hasError('notEqual') &&
+			modelPassowrd.valid">
+			Passwords Don't Match
+		</p>
+	</div>
+
+    <div class="form-group">
+        <label for="inputFirstName">First Name</label>
+        <input type="text" [(ngModel)]="request.firstName" class="form-control" id="inputFirstName" name="first">
+    </div>
+    <div class="form-group">
+        <label for="inputLastName">Last Name</label>
+        <input type="text" [(ngModel)]="request.lastName" class="form-control" id="inputLastName" name="last">
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" [(ngModel)]="request.address" class="form-control" id="inputAddress" name="adr">
+    </div>
+    <div class="form-group">
+        <label for="inputCity">City</label>
+        <input type="text" [(ngModel)]="request.city" class="form-control" id="inputCity" name="cty">
+    </div>
+    <div class="form-group">
+        <label for="inputCountry">Country</label>
+        <input type="text" [(ngModel)]="request.country" class="form-control" id="inputCountry" name="cntry">
+    </div>
+    <div class="form-group">
+        <label for="inputPhoneNumber">Phone Number</label>
+        <input type="text" [(ngModel)]="request.phoneNumber" class="form-control" id="inputPhoneNumber" name="number">
+    </div>
+    <button type="submit" class="btn btn-primary" [routerLink]="['/confirmation']"
+        (click)="submitRegistration()">Submit</button>
+</form>

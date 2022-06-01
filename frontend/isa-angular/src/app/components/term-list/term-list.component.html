@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+<h1 class="title">Available Terms</h1>
+
+<mat-form-field>
+	<input type="text" matInput placeholder="yyyy-mm-dd" [(ngModel)]="searchTerm" >
+</mat-form-field>
+<button type="submit" class="btn btn-primary" (click)="searchByTerm()" >Search Term</button>
+
+
+<div class="list example-container mat-elevation-z8">
+	<div class="search-container">
+		<mat-form-field appearance="fill">
+			<input matInput placeholder="Filter" (keyup)="filterData($event)">
+		</mat-form-field>
+
+		<mat-form-field appearance="fill">
+			<mat-select>
+				<mat-option value="adventures" (click)="getAdventureTerms()">Adventures</mat-option>
+				<mat-option value="cabins" (click)="getCabinTerms()">Cabins</mat-option>
+				<mat-option value="boats" (click)="getBoatTerms()">Boats</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+
+	<mat-table matSort #table [dataSource]="dataSource">
+
+
+		<ng-container matColumnDef="name" >
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+			<div *ngIf="adventures == true">
+				<mat-cell *matCellDef="let element" [routerLink]="['/adventure-terms', element.id]">> {{element.name}} </mat-cell>
+			</div>
+			<div *ngIf="cabins == true">
+				<mat-cell *matCellDef="let element" [routerLink]="['/cabin-terms', element.id]">> {{element.name}} </mat-cell>
+			</div>
+			<div *ngIf="boats == true">
+				<mat-cell *matCellDef="let element" [routerLink]="['/boat-terms', element.id]">> {{element.name}} </mat-cell>
+			</div>
+		</ng-container>
+
+
+		<ng-container matColumnDef="startTime">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Start Time </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.startTime}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="endTime">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> End Time </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.endTime}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="pricePerDay">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Price Per Day </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.pricePerDay}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="rating">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Rating </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.rating}} </mat-cell>
+		</ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</div>

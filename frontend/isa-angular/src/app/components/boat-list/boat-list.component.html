@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<h1 class="title">Boats</h1>
+<div class="list example-container mat-elevation-z8">
+	<div class="search-container">
+		<mat-form-field appearance="fill">
+			<input matInput placeholder="Search" (keyup)="filterData($event)">
+		</mat-form-field>
+	</div>
+
+	<mat-table matSort #table [dataSource]="dataSource">
+
+		<ng-container matColumnDef="name">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+			<mat-cell *matCellDef="let element" [routerLink]="['/boats', element.id]"> {{element.name}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="location">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Location </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="averageRating">
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Rating </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.averageRating}} </mat-cell>
+		</ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</div>

@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="info">
+    <h1>{{boatTerm.name}} (Rating: {{boatTerm.rating}})</h1>
+    <h2>Available From {{boatTerm.startTime}} Until {{boatTerm.endTime}}</h2>
+    <h2>Price Per Day: {{boatTerm.pricePerDay}}</h2>
+
+    <input type="text" placeholder="Start Date" [(ngModel)]="startDateString">
+    <input type="text" placeholder="Duration In Days" [(ngModel)]="duration">
+    <button type="submit" class="btn btn-primary" (click)="createReservation()" >Reserve</button>
+</div>
+
+<h3>Activities</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commodity of boat.commodities">
+                <td>{{commodity.description}}</td>
+                <td>{{commodity.price}}</td>
+                <button type="submit" class="btn btn-primary" (click)="addCommodityToReservation(commodity.id)">Add</button>
+            </tr>
+        </tbody>
+    </table>
