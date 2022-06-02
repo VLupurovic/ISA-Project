@@ -7,9 +7,13 @@ import org.springframework.stereotype.Service;
 
 import in.isa.project.Entities.Cabin;
 import in.isa.project.Entities.CabinOwner;
+import in.isa.project.Entities.Complaints.CabinComplaint;
+import in.isa.project.Entities.Complaints.CabinOwnerComplaint;
 import in.isa.project.Entities.Reviews.CabinOwnerReview;
 import in.isa.project.Entities.Reviews.CabinReview;
 import in.isa.project.Exceptions.CabinNotFoundException;
+import in.isa.project.Repositories.CabinComplaintRepo;
+import in.isa.project.Repositories.CabinOwnerComplaintRepo;
 import in.isa.project.Repositories.CabinOwnerRepo;
 import in.isa.project.Repositories.CabinOwnerReviewRepo;
 import in.isa.project.Repositories.CabinRepo;
@@ -25,6 +29,10 @@ public class CabinService {
     private CabinOwnerRepo cabinOwnerRepo;
     @Autowired
     private CabinOwnerReviewRepo cabinOwnerReviewRepo;
+    @Autowired
+    private CabinComplaintRepo cabinComplaintRepo;
+    @Autowired
+    private CabinOwnerComplaintRepo cabinOwnerComplaintRepo;
 
 
     public Cabin addCabin(Cabin cabin){
@@ -86,5 +94,14 @@ public class CabinService {
 
     public CabinOwner getOwnerById(Long id){
         return cabinOwnerRepo.findById(id).get();
+    }
+
+
+    public CabinComplaint createCabinComplaint(CabinComplaint complaint){
+        return cabinComplaintRepo.save(complaint);
+    }
+
+    public CabinOwnerComplaint createCabinOwnerComplaint(CabinOwnerComplaint complaint){
+        return cabinOwnerComplaintRepo.save(complaint);
     }
 }

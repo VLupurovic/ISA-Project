@@ -8,11 +8,15 @@ import org.springframework.stereotype.Service;
 import in.isa.project.Entities.Adventure;
 import in.isa.project.Entities.AdventureTerm;
 import in.isa.project.Entities.FishingInstructor;
+import in.isa.project.Entities.Complaints.AdventureComplaint;
+import in.isa.project.Entities.Complaints.InstructorComplaint;
 import in.isa.project.Entities.Reviews.AdventureReview;
 import in.isa.project.Entities.Reviews.InstructorReview;
+import in.isa.project.Repositories.AdventureComplaintRepo;
 import in.isa.project.Repositories.AdventureRepo;
 import in.isa.project.Repositories.AdventureReviewRepo;
 import in.isa.project.Repositories.AdventureTermRepo;
+import in.isa.project.Repositories.InstructorComplaintRepo;
 import in.isa.project.Repositories.InstructorRepo;
 import in.isa.project.Repositories.InstructorReviewRepo;
 
@@ -28,6 +32,10 @@ public class AdventureService {
     private InstructorRepo instructorRepo;
     @Autowired
     private InstructorReviewRepo instructorReviewRepo;
+    @Autowired
+    private AdventureComplaintRepo adventureComplaintRepo;
+    @Autowired
+    private InstructorComplaintRepo instructorComplaintRepo;
 
     public ArrayList<Adventure> getAllAdventures(){
         return adventureRepo.findAll();
@@ -80,5 +88,13 @@ public class AdventureService {
 
     public FishingInstructor getInstructorById(Long id){
         return instructorRepo.findById(id).get();
+    }
+
+    public AdventureComplaint createAdventureComplaint(AdventureComplaint complaint){
+        return adventureComplaintRepo.save(complaint);
+    }
+
+    public InstructorComplaint createInstructorComplaint(InstructorComplaint complaint){
+        return instructorComplaintRepo.save(complaint);
     }
 }

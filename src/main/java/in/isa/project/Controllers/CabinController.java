@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import in.isa.project.Entities.Cabin;
 import in.isa.project.Entities.CabinOwner;
+import in.isa.project.Entities.Complaints.CabinComplaint;
+import in.isa.project.Entities.Complaints.CabinOwnerComplaint;
 import in.isa.project.Entities.Reviews.CabinOwnerReview;
 import in.isa.project.Entities.Reviews.CabinReview;
 import in.isa.project.Services.CabinService;
@@ -75,5 +77,17 @@ public class CabinController {
     @GetMapping("/owner/{id}")
     public ResponseEntity<CabinOwner> getOwnerById(@PathVariable("id") Long id){
         return new ResponseEntity<CabinOwner>(cabinService.getOwnerById(id), HttpStatus.OK);
+    }
+
+
+
+    @PostMapping("/complaint")
+    public ResponseEntity<CabinComplaint> createCabinComplaint(@RequestBody CabinComplaint complaint){
+        return new ResponseEntity<CabinComplaint>(cabinService.createCabinComplaint(complaint), HttpStatus.OK);
+    }
+
+    @PostMapping("/complaint/owner")
+    public ResponseEntity<CabinOwnerComplaint> createCabinOwnerComplaint(@RequestBody CabinOwnerComplaint complaint){
+        return new ResponseEntity<CabinOwnerComplaint>(cabinService.createCabinOwnerComplaint(complaint), HttpStatus.OK);
     }
 }

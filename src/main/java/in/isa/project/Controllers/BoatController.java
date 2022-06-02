@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import in.isa.project.Entities.Boat;
 import in.isa.project.Entities.BoatOwner;
+import in.isa.project.Entities.Complaints.BoatComplaint;
+import in.isa.project.Entities.Complaints.BoatOwnerComplaint;
 import in.isa.project.Entities.Reviews.BoatOwnerReview;
 import in.isa.project.Entities.Reviews.BoatReview;
 import in.isa.project.Services.BoatService;
@@ -53,5 +55,17 @@ public class BoatController {
     @GetMapping("/owner/{id}")
     public ResponseEntity<BoatOwner> getOwnerById(@PathVariable("id") Long id){
         return new ResponseEntity<BoatOwner>(boatService.getOwnerById(id), HttpStatus.OK);
+    }
+
+
+
+    @PostMapping("/complaint")
+    public ResponseEntity<BoatComplaint> createBoatComplaint(@RequestBody BoatComplaint complaint){
+        return new ResponseEntity<BoatComplaint>(boatService.createBoatComplaint(complaint), HttpStatus.OK);
+    }
+
+    @PostMapping("/complaint/owner")
+    public ResponseEntity<BoatOwnerComplaint> createBoatOwnerComplaint(@RequestBody BoatOwnerComplaint complaint){
+        return new ResponseEntity<BoatOwnerComplaint>(boatService.createBoatOwnerComplaint(complaint), HttpStatus.OK);
     }
 }

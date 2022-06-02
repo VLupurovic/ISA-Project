@@ -43,7 +43,7 @@
 			<mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
 		</ng-container>
 
-		<ng-container matColumnDef="buttons">
+		<ng-container matColumnDef="buttons1">
 			<mat-header-cell mat-sort-header *matHeaderCellDef></mat-header-cell>
 			<div *ngIf="adventures == true">
 				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-adventure-reservation', element.id]">Leave Rating</button> </mat-cell>
@@ -53,6 +53,19 @@
 			</div>
 			<div *ngIf="boats == true">
 				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-boat-reservation', element.id]">Leave Rating</button> </mat-cell>
+			</div>
+		</ng-container>
+
+		<ng-container matColumnDef="buttons2">
+			<mat-header-cell mat-sort-header *matHeaderCellDef></mat-header-cell>
+			<div *ngIf="adventures == true">
+				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-adventure-complaint', element.id]">Leave a Complaint</button> </mat-cell>
+			</div>
+			<div *ngIf="cabins == true">
+				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-cabin-complaint', element.id]">Leave a Complaint</button> </mat-cell>
+			</div>
+			<div *ngIf="boats == true">
+				<mat-cell *matCellDef="let element"> <button type="button" class="btn btn-primary" [routerLink]="['/past-boat-complaint', element.id]">Leave a Complaint</button> </mat-cell>
 			</div>
 		</ng-container>
        

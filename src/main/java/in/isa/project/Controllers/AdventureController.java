@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import in.isa.project.Entities.Adventure;
 import in.isa.project.Entities.FishingInstructor;
+import in.isa.project.Entities.Complaints.AdventureComplaint;
+import in.isa.project.Entities.Complaints.InstructorComplaint;
 import in.isa.project.Entities.Reviews.AdventureReview;
 import in.isa.project.Entities.Reviews.InstructorReview;
 import in.isa.project.Services.AdventureService;
@@ -47,7 +49,12 @@ public class AdventureController {
         return new ResponseEntity<Adventure>(adventureService.getAdventureFromTerm(id), HttpStatus.OK);
     }
 
-    
+    @GetMapping("/instructor/{id}")
+    public ResponseEntity<FishingInstructor> getInstructorById(@PathVariable("id") Long id){
+        return new ResponseEntity<FishingInstructor>(adventureService.getInstructorById(id), HttpStatus.OK);
+    }
+
+
 
     @PostMapping("/rate")
     public ResponseEntity<AdventureReview> createAdventureReview(@RequestBody AdventureReview review){
@@ -60,8 +67,14 @@ public class AdventureController {
     }
 
 
-    @GetMapping("/instructor/{id}")
-    public ResponseEntity<FishingInstructor> getInstructorById(@PathVariable("id") Long id){
-        return new ResponseEntity<FishingInstructor>(adventureService.getInstructorById(id), HttpStatus.OK);
+
+    @PostMapping("/complaint")
+    public ResponseEntity<AdventureComplaint> createAdventureComplaint(@RequestBody AdventureComplaint complaint){
+        return new ResponseEntity<AdventureComplaint>(adventureService.createAdventureComplaint(complaint), HttpStatus.OK);
+    }
+
+    @PostMapping("/complaint/instuctor")
+    public ResponseEntity<InstructorComplaint> createInstructorComplaint(@RequestBody InstructorComplaint complaint){
+        return new ResponseEntity<InstructorComplaint>(adventureService.createInstructorComplaint(complaint), HttpStatus.OK);
     }
 }

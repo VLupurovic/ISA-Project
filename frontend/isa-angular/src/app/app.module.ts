@@ -39,6 +39,9 @@ import { PastReservationInfoComponent } from './components/past-reservation-info
 import { PastAdventureReservationInfoComponent } from './components/past-adventure-reservation-info/past-adventure-reservation-info.component';
 import { PastBoatReservationInfoComponent } from './components/past-boat-reservation-info/past-boat-reservation-info.component';
 import { PastCabinReservationInfoComponent } from './components/past-cabin-reservation-info/past-cabin-reservation-info.component';
+import { PastAdventureComplaintComponent } from './components/past-adventure-complaint/past-adventure-complaint.component';
+import { PastCabinComplaintComponent } from './components/past-cabin-complaint/past-cabin-complaint.component';
+import { PastBoatComplaintComponent } from './components/past-boat-complaint/past-boat-complaint.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import { PastCabinReservationInfoComponent } from './components/past-cabin-reser
     PastReservationInfoComponent,
     PastAdventureReservationInfoComponent,
     PastBoatReservationInfoComponent,
-    PastCabinReservationInfoComponent
+    PastCabinReservationInfoComponent,
+    PastAdventureComplaintComponent,
+    PastCabinComplaintComponent,
+    PastBoatComplaintComponent
   ],
   imports: [
     BrowserModule,

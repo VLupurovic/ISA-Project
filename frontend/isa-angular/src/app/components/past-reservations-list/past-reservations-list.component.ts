@@ -18,7 +18,7 @@ export class PastReservationsListComponent implements OnInit {
   boatReservations: BoatReservation[] = [];
   cabinReservations: CabinReservation[] = [];
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['name', 'startTime', 'endTime', 'price', 'buttons'];
+  displayedColumns = ['name', 'startTime', 'endTime', 'price', 'buttons1', 'buttons2'];
   adventures: boolean = false;
   cabins: boolean = false;
   boats: boolean = false;

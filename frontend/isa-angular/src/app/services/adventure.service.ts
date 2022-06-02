@@ -1,3 +1,5 @@
+import { InstructorComplaint } from './../models/instructor-complaint';
+import { AdventureComplaint } from './../models/adventure-complaint';
 import { FishingInstructor } from './../models/fishing-instructor';
 import { AdventureReview } from './../models/adventure-review';
 import { Adventure } from './../models/adventure';
@@ -38,5 +40,15 @@ export class AdventureService {
 
   getInstructorById(id: number): Observable<FishingInstructor>{
     return this.httpClient.get<FishingInstructor>(`${this.baseURL}/instructor/${id}`)
+  }
+
+
+
+  createAdventureComplaint(complaint: AdventureComplaint): Observable<AdventureComplaint>{
+    return this.httpClient.post<AdventureComplaint>(`${this.baseURL}/complaint`, complaint)
+  }
+
+  createInstructorComplaint(complaint: InstructorComplaint): Observable<InstructorComplaint>{
+    return this.httpClient.post<InstructorComplaint>(`${this.baseURL}/complaint/instuctor`, complaint)
   }
 }

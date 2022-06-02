@@ -1,3 +1,5 @@
+import { CabinOwnerComplaint } from './../models/cabin-owner-complaint';
+import { CabinComplaint } from './../models/cabin-complaint';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -33,5 +35,14 @@ export class CabinService {
 
   createCabinOwnerReview(review: CabinOwnerReview): Observable<CabinOwnerReview>{
     return this.httpClient.post<CabinOwnerReview>(`${this.baseURL}/rate/owner`, review)
+  }
+
+
+  createCabinComplaint(complaint: CabinComplaint): Observable<CabinComplaint>{
+    return this.httpClient.post<CabinComplaint>(`${this.baseURL}/complaint`, complaint)
+  }
+
+  createCabinOwnerComplaint(complaint: CabinOwnerComplaint): Observable<CabinOwnerComplaint>{
+    return this.httpClient.post<CabinOwnerComplaint>(`${this.baseURL}/complaint/owner`, complaint)
   }
 }

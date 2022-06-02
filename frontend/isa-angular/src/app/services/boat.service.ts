@@ -1,3 +1,5 @@
+import { BoatOwnerComplaint } from './../models/boat-owner-complaint';
+import { BoatComplaint } from './../models/boat-complaint';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -32,5 +34,14 @@ export class BoatService {
 
   createBoatOwnerReview(review: BoatOwnerReview): Observable<BoatOwnerReview>{
     return this.httpClient.post<BoatOwnerReview>(`${this.baseURL}/rate/owner`, review)
+  }
+
+
+  createBoatComplaint(complaint: BoatComplaint): Observable<BoatComplaint>{
+    return this.httpClient.post<BoatComplaint>(`${this.baseURL}/complaint`, complaint)
+  }
+
+  createBoatOwnerComplaint(complaint: BoatOwnerComplaint): Observable<BoatOwnerComplaint>{
+    return this.httpClient.post<BoatOwnerComplaint>(`${this.baseURL}/complaint/owner`, complaint)
   }
 }

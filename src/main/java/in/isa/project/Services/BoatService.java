@@ -7,9 +7,13 @@ import org.springframework.stereotype.Service;
 
 import in.isa.project.Entities.Boat;
 import in.isa.project.Entities.BoatOwner;
+import in.isa.project.Entities.Complaints.BoatComplaint;
+import in.isa.project.Entities.Complaints.BoatOwnerComplaint;
 import in.isa.project.Entities.Reviews.BoatOwnerReview;
 import in.isa.project.Entities.Reviews.BoatReview;
 import in.isa.project.Exceptions.CabinNotFoundException;
+import in.isa.project.Repositories.BoatComplaintRepo;
+import in.isa.project.Repositories.BoatOwnerComplaintRepo;
 import in.isa.project.Repositories.BoatOwnerRepo;
 import in.isa.project.Repositories.BoatOwnerReviewRepo;
 import in.isa.project.Repositories.BoatRepo;
@@ -25,6 +29,10 @@ public class BoatService {
     private BoatOwnerRepo boatOwnerRepo;
     @Autowired
     BoatOwnerReviewRepo boatOwnerReviewRepo;
+    @Autowired
+    BoatComplaintRepo boatComplaintRepo;
+    @Autowired
+    BoatOwnerComplaintRepo boatOwnerComplaintRepo;
 
     public ArrayList<Boat> findAllBoats(){
         return boatRepo.findAll();
@@ -67,8 +75,17 @@ public class BoatService {
     }
 
 
-
     public BoatOwner getOwnerById(Long id){
         return boatOwnerRepo.findById(id).get();
+    }
+
+
+
+    public BoatComplaint createBoatComplaint(BoatComplaint complaint){
+        return boatComplaintRepo.save(complaint);
+    }
+
+    public BoatOwnerComplaint createBoatOwnerComplaint(BoatOwnerComplaint complaint){
+        return boatOwnerComplaintRepo.save(complaint);
     }
 }

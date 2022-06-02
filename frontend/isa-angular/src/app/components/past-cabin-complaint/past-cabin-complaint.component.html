@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+
+<div class="info">
+    <h1>{{cabinName}}</h1>
+    <h2>Start time: {{reservation.startTime}}</h2>
+    <h2>End time: {{reservation.endTime}}</h2>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea3">Leave a complaint for the adventure:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" [(ngModel)]="cabinComplaint.complaint"></textarea>
+
+        <label for="exampleFormControlTextarea3">Leave a complaint for {{cabinOwner.firstName}} {{cabinOwner.lastName}}:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" [(ngModel)]="cabinOwnerComplaint.complaint"></textarea>
+        <button type="button" class="btn btn-primary" (click)="leaveComplaint()">Rate</button>
+    </div>
+</div>
