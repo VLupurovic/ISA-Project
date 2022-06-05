@@ -7,6 +7,7 @@ import { Cabin } from '../models/cabin';
 import { CabinOwner } from '../models/cabin-owner';
 import { CabinOwnerReview } from '../models/cabin-owner-review';
 import { CabinReview } from '../models/cabin-review';
+import { RegisteredUser } from '../models/registered-user';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,18 @@ export class CabinService {
 
   createCabinOwnerComplaint(complaint: CabinOwnerComplaint): Observable<CabinOwnerComplaint>{
     return this.httpClient.post<CabinOwnerComplaint>(`${this.baseURL}/complaint/owner`, complaint)
+  }
+
+  subscribeToCabin(userId: number, cabinId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/subscribe/cabin/${userId}`, cabinId);
+  }
+
+  unsubscribeFromCabin(userId: number, cabinId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/unsubscribe/cabin/${userId}`, cabinId);
+  }
+
+
+  getUserCabinSubscriptions(id: number): Observable<Cabin[]>{
+    return this.httpClient.get<Cabin[]>(`${this.baseURL}/subscriptions/${id}`)
   }
 }

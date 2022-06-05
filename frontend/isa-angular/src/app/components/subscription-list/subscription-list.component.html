@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="list example-container mat-elevation-z8">
+	<div class="search-container">
+		<mat-form-field appearance="fill">
+			<mat-select>
+				<mat-option value="adventures" (click)="getUserAdventureSubscriptions()">Adventures</mat-option>
+				<mat-option value="cabins" (click)="getUserCabinSubscriptions()">Cabins</mat-option>
+				<mat-option value="boats" (click)="getUserBoatSubscriptions()">Boats</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+
+	<mat-table matSort #table [dataSource]="dataSource">
+
+
+		<ng-container matColumnDef="name" >
+			<mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+			<div *ngIf="adventures == true">
+				<mat-cell *matCellDef="let element">> {{element.name}} </mat-cell>
+			</div>
+			<div *ngIf="cabins == true">
+				<mat-cell *matCellDef="let element">> {{element.name}} </mat-cell>
+			</div>
+			<div *ngIf="boats == true">
+				<mat-cell *matCellDef="let element">> {{element.name}} </mat-cell>
+			</div>
+		</ng-container>
+
+		<ng-container matColumnDef="button">
+			<mat-header-cell mat-sort-header *matHeaderCellDef></mat-header-cell>
+            <div *ngIf="adventures == true">
+			    <mat-cell *matCellDef="let element"> <button type="button" class="btn btn-danger" (click)="unsubscribeFromAdventure(element.id)">Unsubscribe</button> </mat-cell>
+            </div>
+            <div *ngIf="cabins == true">
+			    <mat-cell *matCellDef="let element"> <button type="button" class="btn btn-danger" (click)="unsubscribeFromCabin(element.id)">Unsubscribe</button> </mat-cell>
+            </div>
+            <div *ngIf="boats == true">
+			    <mat-cell *matCellDef="let element"> <button type="button" class="btn btn-danger" (click)="unsubscribeFromBoat(element.id)">Unsubscribe</button> </mat-cell>
+            </div>
+		</ng-container>
+
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+</div>

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import in.isa.project.Entities.Boat;
 import in.isa.project.Entities.BoatOwner;
+import in.isa.project.Entities.RegisteredUser;
 import in.isa.project.Entities.Complaints.BoatComplaint;
 import in.isa.project.Entities.Complaints.BoatOwnerComplaint;
 import in.isa.project.Entities.Reviews.BoatOwnerReview;
@@ -18,6 +20,7 @@ import in.isa.project.Repositories.BoatOwnerRepo;
 import in.isa.project.Repositories.BoatOwnerReviewRepo;
 import in.isa.project.Repositories.BoatRepo;
 import in.isa.project.Repositories.BoatReviewRepo;
+import in.isa.project.Repositories.RegisteredUserRepo;
 
 @Service
 public class BoatService {
@@ -33,6 +36,8 @@ public class BoatService {
     BoatComplaintRepo boatComplaintRepo;
     @Autowired
     BoatOwnerComplaintRepo boatOwnerComplaintRepo;
+    @Autowired
+    RegisteredUserRepo registeredUserRepo;
 
     public ArrayList<Boat> findAllBoats(){
         return boatRepo.findAll();
@@ -74,12 +79,9 @@ public class BoatService {
         return boatOwnerReviewRepo.save(newReview);
     }
 
-
     public BoatOwner getOwnerById(Long id){
         return boatOwnerRepo.findById(id).get();
     }
-
-
 
     public BoatComplaint createBoatComplaint(BoatComplaint complaint){
         return boatComplaintRepo.save(complaint);
@@ -87,5 +89,23 @@ public class BoatService {
 
     public BoatOwnerComplaint createBoatOwnerComplaint(BoatOwnerComplaint complaint){
         return boatOwnerComplaintRepo.save(complaint);
+    }
+
+    public ArrayList<Boat> getUserBoatSubscriptions(Long id){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getBoatSubscriptions();
+
+        if(subs == null){
+            subs = new ArrayList<Long>();
+        }
+
+        ArrayList<Boat> boats = boatRepo.findAll();
+        ArrayList<Boat> toReturn = boatRepo.findAll();
+        for(Boat boat: boats){
+            if(!subs.contains(boat.getId())){
+                toReturn.remove(boat);
+            }
+        }
+        return toReturn;
     }
 }

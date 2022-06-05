@@ -32,4 +32,30 @@ export class UserService {
   getById(userId: number): Observable<RegisteredUser>{
     return this.httpClient.get<RegisteredUser>(`${this.baseURL}/${userId}`);
   }
+
+  subscribeToAdventure(userId: number, adventureId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/subscribe/adventure/${userId}`, adventureId);
+  }
+
+  unsubscribeFromAdventure(userId: number, adventureId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/unsubscribe/adventure/${userId}`, adventureId);
+  }
+
+  subscribeToBoat(userId: number, boatId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/subscribe/boat/${userId}`, boatId);
+  }
+
+  unsubscribeFromBoat(userId: number, boatId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/unsubscribe/boat/${userId}`, boatId);
+  }
+
+  subscribeToCabin(userId: number, cabinId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/subscribe/cabin/${userId}`, cabinId);
+  }
+
+  unsubscribeFromCabin(userId: number, cabinId: number){
+    return this.httpClient.put<RegisteredUser>(`${this.baseURL}/unsubscribe/cabin/${userId}`, cabinId);
+  }
 }
+
+

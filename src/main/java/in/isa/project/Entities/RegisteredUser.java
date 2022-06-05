@@ -1,5 +1,6 @@
 package in.isa.project.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,6 +27,10 @@ public class RegisteredUser extends User{
     private int points;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "registeredUser")
     private List<ConfirmationToken> tokens;
+
+    private ArrayList<Long> adventureSubscriptions = new ArrayList<Long>();
+    private ArrayList<Long> boatSubscriptions = new ArrayList<Long>();
+    private ArrayList<Long> cabinSubscriptions = new ArrayList<Long>();
 
     public void Update(RegisteredUser user){
         this.setPassword(user.getPassword());
@@ -95,4 +100,35 @@ public class RegisteredUser extends User{
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+
+    public ArrayList<Long> getAdventureSubscriptions() {
+        return adventureSubscriptions;
+    }
+
+
+    public void setAdventureSubscriptions(ArrayList<Long> adventureSubscriptions) {
+        this.adventureSubscriptions = adventureSubscriptions;
+    }
+
+
+    public ArrayList<Long> getBoatSubscriptions() {
+        return boatSubscriptions;
+    }
+
+
+    public void setBoatSubscriptions(ArrayList<Long> boatSubscriptions) {
+        this.boatSubscriptions = boatSubscriptions;
+    }
+
+
+    public ArrayList<Long> getCabinSubscriptions() {
+        return cabinSubscriptions;
+    }
+
+
+    public void setCabinSubscriptions(ArrayList<Long> cabinSubscriptions) {
+        this.cabinSubscriptions = cabinSubscriptions;
+    }
+    
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import in.isa.project.Entities.Adventure;
 import in.isa.project.Entities.AdventureTerm;
 import in.isa.project.Entities.FishingInstructor;
+import in.isa.project.Entities.RegisteredUser;
 import in.isa.project.Entities.Complaints.AdventureComplaint;
 import in.isa.project.Entities.Complaints.InstructorComplaint;
 import in.isa.project.Entities.Reviews.AdventureReview;
@@ -19,6 +20,7 @@ import in.isa.project.Repositories.AdventureTermRepo;
 import in.isa.project.Repositories.InstructorComplaintRepo;
 import in.isa.project.Repositories.InstructorRepo;
 import in.isa.project.Repositories.InstructorReviewRepo;
+import in.isa.project.Repositories.RegisteredUserRepo;
 
 @Service
 public class AdventureService {
@@ -36,6 +38,8 @@ public class AdventureService {
     private AdventureComplaintRepo adventureComplaintRepo;
     @Autowired
     private InstructorComplaintRepo instructorComplaintRepo;
+    @Autowired
+    private RegisteredUserRepo registeredUserRepo;
 
     public ArrayList<Adventure> getAllAdventures(){
         return adventureRepo.findAll();
@@ -96,5 +100,23 @@ public class AdventureService {
 
     public InstructorComplaint createInstructorComplaint(InstructorComplaint complaint){
         return instructorComplaintRepo.save(complaint);
+    }
+
+    public ArrayList<Adventure> getUserAdventureSubscriptions(Long id){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getAdventureSubscriptions();
+
+        if(subs == null){
+            subs = new ArrayList<Long>();
+        }
+        
+        ArrayList<Adventure> adventures = adventureRepo.findAll();
+        ArrayList<Adventure> toReturn = adventureRepo.findAll();
+        for(Adventure adventure: adventures){
+            if(!subs.contains(adventure.getId())){
+                toReturn.remove(adventure);
+            }
+        }
+        return toReturn;
     }
 }

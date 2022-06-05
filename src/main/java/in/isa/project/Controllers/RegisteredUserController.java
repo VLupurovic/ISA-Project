@@ -62,4 +62,39 @@ public class RegisteredUserController {
     public ResponseEntity<UserDeleteRequest> createDeleteRequest(@RequestBody Long userId){
         return new ResponseEntity<UserDeleteRequest>(registeredUserService.createDeleteRequest(userId), HttpStatus.OK);
     }
+
+
+
+
+    @PutMapping("/subscribe/adventure/{id}")
+    public ResponseEntity<RegisteredUser> userAdventureSubscribe(@PathVariable("id") Long id, @RequestBody Long adventureId){
+        return new ResponseEntity<RegisteredUser>(registeredUserService.userAdventureSubscribe(id, adventureId), HttpStatus.OK);
+    }
+
+    @PutMapping("/subscribe/boat/{id}")
+    public ResponseEntity<RegisteredUser> userBoatSubscribe(@PathVariable("id") Long id, @RequestBody Long boatId){
+        return new ResponseEntity<RegisteredUser>(registeredUserService.userBoatSubscribe(id, boatId), HttpStatus.OK);
+    }
+
+    @PutMapping("/subscribe/cabin/{id}")
+    public ResponseEntity<RegisteredUser> userCabinSubscribe(@PathVariable("id") Long id, @RequestBody Long cabinId){
+        return new ResponseEntity<RegisteredUser>(registeredUserService.userCabinSubscribe(id, cabinId), HttpStatus.OK);
+    }
+
+
+
+    @PutMapping("/unsubscribe/adventure/{id}")
+    public ResponseEntity<RegisteredUser> userAdventureUnubscribe(@PathVariable("id") Long id, @RequestBody Long adventureId){
+        return new ResponseEntity<RegisteredUser>(registeredUserService.userAdventureUnsubscribe(id, adventureId), HttpStatus.OK);
+    }
+
+    @PutMapping("/unsubscribe/boat/{id}")
+    public ResponseEntity<RegisteredUser> userBoatUnsubscribe(@PathVariable("id") Long id, @RequestBody Long boatId){
+        return new ResponseEntity<RegisteredUser>(registeredUserService.userBoatUnsubscribe(id, boatId), HttpStatus.OK);
+    }
+
+    @PutMapping("/unsubscribe/cabin/{id}")
+    public ResponseEntity<RegisteredUser> userCabinUnsubscribe(@PathVariable("id") Long id, @RequestBody Long cabinId){
+        return new ResponseEntity<RegisteredUser>(registeredUserService.userCabinUnsubscribe(id, cabinId), HttpStatus.OK);
+    }
 }

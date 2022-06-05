@@ -28,6 +28,7 @@ import { PastCabinReservationInfoComponent } from './components/past-cabin-reser
 import { PastAdventureComplaintComponent } from './components/past-adventure-complaint/past-adventure-complaint.component';
 import { PastCabinComplaintComponent } from './components/past-cabin-complaint/past-cabin-complaint.component';
 import { PastBoatComplaintComponent } from './components/past-boat-complaint/past-boat-complaint.component';
+import { SubscriptionListComponent } from './components/subscription-list/subscription-list.component';
 
 const routes: Routes = [
   {path: 'boats', component: BoatListComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path: 'past-adventure-complaint/:id', component: PastAdventureComplaintComponent},
   {path: 'past-cabin-complaint/:id', component: PastCabinComplaintComponent},
   {path: 'past-boat-complaint/:id', component: PastBoatComplaintComponent},
+  {path: 'subscription-list', component: SubscriptionListComponent}
 ];
 
 @NgModule({

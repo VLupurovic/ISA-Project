@@ -1,3 +1,5 @@
+import { RegisteredUser } from './../../models/registered-user';
+import { UserService } from './../../services/user.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,11 +14,13 @@ import { AdventureService } from 'src/app/services/adventure.service';
 export class AdventureListComponent implements OnInit {
   adventures: Adventure[];
   dataSource!:MatTableDataSource<any>;
-  displayedColumns = ['name', 'address', 'averageRating'];
+  displayedColumns = ['name', 'address', 'averageRating', 'button'];
+  x:any = ""
+  loggedUser: RegisteredUser = new RegisteredUser();
   
   @ViewChild(MatSort) matSort!: MatSort;
 
-  constructor(private service: AdventureService) { }
+  constructor(private service: AdventureService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.getAllAdventures();
@@ -34,5 +38,12 @@ export class AdventureListComponent implements OnInit {
         this.dataSource.sort = this.matSort;
       }
     );
+  }
+
+  subscribeToAdventure(adventureId: number){
+    this.x = localStorage.getItem('loggedUser')
+    this.loggedUser = JSON.parse(this.x)
+    
+    this.userService.subscribeToAdventure(this.loggedUser.id, adventureId).subscribe(data => console.log(data))
   }
 }

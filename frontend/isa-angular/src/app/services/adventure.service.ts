@@ -51,4 +51,9 @@ export class AdventureService {
   createInstructorComplaint(complaint: InstructorComplaint): Observable<InstructorComplaint>{
     return this.httpClient.post<InstructorComplaint>(`${this.baseURL}/complaint/instuctor`, complaint)
   }
+
+
+  getUserAdventureSubscriptions(id: number): Observable<Adventure[]>{
+    return this.httpClient.get<Adventure[]>(`${this.baseURL}/subscriptions/${id}`)
+  }
 }

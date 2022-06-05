@@ -79,6 +79,11 @@ public class CabinController {
         return new ResponseEntity<CabinOwner>(cabinService.getOwnerById(id), HttpStatus.OK);
     }
 
+    @GetMapping("subscriptions/{user_id}")
+    public ResponseEntity<ArrayList<Cabin>> getUserCabinSubscriptions(@PathVariable("user_id") Long id){
+        return new ResponseEntity<ArrayList<Cabin>>(cabinService.getUserCabinSubscriptions(id), HttpStatus.OK);
+    }
+
 
 
     @PostMapping("/complaint")

@@ -54,6 +54,11 @@ public class AdventureController {
         return new ResponseEntity<FishingInstructor>(adventureService.getInstructorById(id), HttpStatus.OK);
     }
 
+    @GetMapping("subscriptions/{user_id}")
+    public ResponseEntity<ArrayList<Adventure>> getUserAdventureSubscriptions(@PathVariable("user_id") Long id){
+        return new ResponseEntity<ArrayList<Adventure>>(adventureService.getUserAdventureSubscriptions(id), HttpStatus.OK);
+    }
+
 
 
     @PostMapping("/rate")

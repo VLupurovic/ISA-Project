@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import in.isa.project.Entities.Cabin;
 import in.isa.project.Entities.CabinOwner;
+import in.isa.project.Entities.RegisteredUser;
 import in.isa.project.Entities.Complaints.CabinComplaint;
 import in.isa.project.Entities.Complaints.CabinOwnerComplaint;
 import in.isa.project.Entities.Reviews.CabinOwnerReview;
@@ -18,6 +19,7 @@ import in.isa.project.Repositories.CabinOwnerRepo;
 import in.isa.project.Repositories.CabinOwnerReviewRepo;
 import in.isa.project.Repositories.CabinRepo;
 import in.isa.project.Repositories.CabinReviewRepo;
+import in.isa.project.Repositories.RegisteredUserRepo;
 
 @Service
 public class CabinService {
@@ -33,6 +35,8 @@ public class CabinService {
     private CabinComplaintRepo cabinComplaintRepo;
     @Autowired
     private CabinOwnerComplaintRepo cabinOwnerComplaintRepo;
+    @Autowired
+    private RegisteredUserRepo registeredUserRepo;
 
 
     public Cabin addCabin(Cabin cabin){
@@ -91,7 +95,6 @@ public class CabinService {
         return cabinOwnerReviewRepo.save(newReview);
     }
 
-
     public CabinOwner getOwnerById(Long id){
         return cabinOwnerRepo.findById(id).get();
     }
@@ -103,5 +106,23 @@ public class CabinService {
 
     public CabinOwnerComplaint createCabinOwnerComplaint(CabinOwnerComplaint complaint){
         return cabinOwnerComplaintRepo.save(complaint);
+    }
+
+    public ArrayList<Cabin> getUserCabinSubscriptions(Long id){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getCabinSubscriptions();
+
+        if(subs == null){
+            subs = new ArrayList<Long>();
+        }
+
+        ArrayList<Cabin> cabins = cabinRepo.findAll();
+        ArrayList<Cabin> toReturn = cabinRepo.findAll();
+        for(Cabin cabin: cabins){
+            if(!subs.contains(cabin.getId())){
+                toReturn.remove(cabin);
+            }
+        }
+        return toReturn;
     }
 }

@@ -160,6 +160,79 @@ public class RegisteredUserService implements UserDetailsService{
     } 
 
 
+
+    public RegisteredUser userAdventureSubscribe(Long id, Long adventureId){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getAdventureSubscriptions();
+
+        if(subs == null)
+            subs = new ArrayList<Long>();
+        if(subs.contains(adventureId)){
+            throw new IllegalStateException("Already subscribed!");
+        }
+
+        subs.add(adventureId);
+        user.setAdventureSubscriptions(subs);
+        return registeredUserRepo.save(user);
+    }
+
+    public RegisteredUser userBoatSubscribe(Long id, Long boatId){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getBoatSubscriptions();
+
+        if(subs == null)
+            subs = new ArrayList<Long>();
+        if(subs.contains(boatId)){
+            throw new IllegalStateException("Already subscribed!");
+        }
+
+        subs.add(boatId);
+        user.setBoatSubscriptions(subs);
+        return registeredUserRepo.save(user);
+    }
+
+    public RegisteredUser userCabinSubscribe(Long id, Long cabinId){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getCabinSubscriptions();
+
+        if(subs == null)
+            subs = new ArrayList<Long>();
+        if(subs.contains(cabinId)){
+            throw new IllegalStateException("Already subscribed!");
+        }
+
+        subs.add(cabinId);
+        user.setCabinSubscriptions(subs);
+        return registeredUserRepo.save(user);
+    }
+
+
+
+    public RegisteredUser userAdventureUnsubscribe(Long id, Long adventureId){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getAdventureSubscriptions();
+        subs.remove(adventureId);
+        user.setAdventureSubscriptions(subs);
+        return registeredUserRepo.save(user);
+    }
+
+    public RegisteredUser userBoatUnsubscribe(Long id, Long boatId){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getBoatSubscriptions();
+        subs.remove(boatId);
+        user.setBoatSubscriptions(subs);
+        return registeredUserRepo.save(user);
+    }
+
+    public RegisteredUser userCabinUnsubscribe(Long id, Long cabinId){
+        RegisteredUser user = registeredUserRepo.getById(id);
+        ArrayList<Long> subs = user.getCabinSubscriptions();
+        subs.remove(cabinId);
+        user.setCabinSubscriptions(subs);
+        return registeredUserRepo.save(user);
+    }
+
+
     private String buildEmail(String name, String link) {
         return "<div style=\"font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c\">\n" +
                 "\n" +

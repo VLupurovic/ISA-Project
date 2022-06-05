@@ -57,6 +57,11 @@ public class BoatController {
         return new ResponseEntity<BoatOwner>(boatService.getOwnerById(id), HttpStatus.OK);
     }
 
+    @GetMapping("subscriptions/{user_id}")
+    public ResponseEntity<ArrayList<Boat>> getUserBoatSubscriptions(@PathVariable("user_id") Long id){
+        return new ResponseEntity<ArrayList<Boat>>(boatService.getUserBoatSubscriptions(id), HttpStatus.OK);
+    }
+
 
 
     @PostMapping("/complaint")

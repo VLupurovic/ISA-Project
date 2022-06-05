@@ -42,6 +42,7 @@ import { PastCabinReservationInfoComponent } from './components/past-cabin-reser
 import { PastAdventureComplaintComponent } from './components/past-adventure-complaint/past-adventure-complaint.component';
 import { PastCabinComplaintComponent } from './components/past-cabin-complaint/past-cabin-complaint.component';
 import { PastBoatComplaintComponent } from './components/past-boat-complaint/past-boat-complaint.component';
+import { SubscriptionListComponent } from './components/subscription-list/subscription-list.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { PastBoatComplaintComponent } from './components/past-boat-complaint/pas
     PastCabinReservationInfoComponent,
     PastAdventureComplaintComponent,
     PastCabinComplaintComponent,
-    PastBoatComplaintComponent
+    PastBoatComplaintComponent,
+    SubscriptionListComponent
   ],
   imports: [
     BrowserModule,
