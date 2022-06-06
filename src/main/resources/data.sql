@@ -61,7 +61,7 @@ insert into registered_user(address, city, country, phone_number, points, first_
 insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 1, '2020-01-01', '2020-01-10', 1000);
 insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 2, '2020-02-02', '2020-02-10', 1000);
 
-insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 1, '2023-01-01', '2023-01-10', 1000);
+insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 1, '2022-06-07', '2022-06-17', 1000);
 insert into adventure_reservation(registered_user_id, adventure_id, start_time, end_time, price) values (1, 2, '2023-02-02', '2023-02-10', 1000);
 
 

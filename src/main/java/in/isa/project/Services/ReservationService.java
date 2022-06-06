@@ -17,9 +17,9 @@ import in.isa.project.Repositories.AdventureReservationRepo;
 import in.isa.project.Repositories.BoatReservationRepo;
 import in.isa.project.Repositories.CabinReservationRepo;
 import in.isa.project.Security.Email.EmailSender;
+import java.time.temporal.ChronoUnit;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 @Service
 public class ReservationService {
@@ -236,6 +236,9 @@ public class ReservationService {
     //Delete reservations
     public void deleteAdventureReservation(Long id){
         Optional<AdventureReservation> res = adventureReservationRepo.findById(id);
+        if(ChronoUnit.DAYS.between(LocalDateTime.now(), res.get().getStartTime()) < 3){
+            throw new IllegalStateException("Reservations can only be canceled 3 days in advance!");
+        }
         adventureReservationRepo.delete(res.get());
         AdventureTerm newTerm = new AdventureTerm();
         newTerm.Update(new AdventureTerm(res.get().getAdventureId(), res.get().getStartTime(), res.get().getEndTime(), res.get().getPrice() / (ChronoUnit.DAYS.between(res.get().getStartTime(), res.get().getEndTime()))));
@@ -244,6 +247,9 @@ public class ReservationService {
 
     public void deleteBoatReservation(Long id){
         Optional<BoatReservation> res = boatReservationRepo.findById(id);
+        if(ChronoUnit.DAYS.between(LocalDateTime.now(), res.get().getStartTime()) < 3){
+            throw new IllegalStateException("Reservations can only be canceled 3 days in advance!");
+        }
         boatReservationRepo.delete(res.get());
         BoatTerm newTerm = new BoatTerm();
         newTerm.Update(new BoatTerm(res.get().getBoatId(), res.get().getStartTime(), res.get().getEndTime(), res.get().getPrice() / (ChronoUnit.DAYS.between(res.get().getStartTime(), res.get().getEndTime()))));
@@ -252,6 +258,9 @@ public class ReservationService {
 
     public void deleteCabinReservation(Long id){
         Optional<CabinReservation> res = cabinReservationRepo.findById(id);
+        if(ChronoUnit.DAYS.between(LocalDateTime.now(), res.get().getStartTime()) < 3){
+            throw new IllegalStateException("Reservations can only be canceled 3 days in advance!");
+        }
         cabinReservationRepo.delete(res.get());
         CabinTerm newTerm = new CabinTerm();
         newTerm.Update(new CabinTerm(res.get().getCabinId(), res.get().getStartTime(), res.get().getEndTime(), res.get().getPrice() / (ChronoUnit.DAYS.between(res.get().getStartTime(), res.get().getEndTime()))));
