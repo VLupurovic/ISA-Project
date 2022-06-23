@@ -1,2 +1,4 @@
 # ISA-Project
-Java SptingBoot project
+Java SptingBoot project\
+\
+Tehnologije korišćene: Angular, Java SpringBoot, PostgreSQL
