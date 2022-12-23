@@ -1,4 +1,4 @@
 # ISA-Project
-Java SptingBoot project\
+Monolitna web aplikacija ciji je cilj da pruza usluge rezervisanja vikendica, brodova i instruktora i njihovih usluga\
 \
-Tehnologije korišćene: Angular, Java SpringBoot, PostgreSQL
+Tehnologije korišćene: Angular, Java, Spring boot, PostgreSQL
