@@ -13,36 +13,15 @@ avantura, korisnicima i njihovim profilima.
 ## Tipovi korisnika
 
 Sistem razlikuje sledeće vrste korisnika:\
+● **Neautentifikovani korisnici**: imaju mogućnost da pretražuju vikendice,
+brodove/čamce, ture sa instruktorom, da se registruju i, ako su već
+registrovani, da vrše prijavu na sistem.\
 ● **Registrovani korisnik (klijent)**: može da rezerviše entitet (vikendicu,
 brod, instruktora), otkaže rezervaciju najkasnije 3 dana pre početka
 korišćenja usluge, ima uvid u zakazane avanture, piše žalbe i revizije
 rezervacija. Ima svoj profil u kojem se beleži istorija zakazivanja. Korisnik
-nema prava pristupa profilima drugih korisnika sistema.\
-● **Vlasnik vikendice**: ima prava pristupa osnovnom profilu klijenata koji su
-izvršili rezervaciju, kao i istoriju rezervacija. Može da popunjava izveštaj o
-završenoj rezervaciji, kao i da podnosi žalbe na klijente. Ima grafički prikaz
-kalendara zauzetosti vikendice, može u isti da unese period nedostupnosti
-vikendice. Može da izbriše vikendicu. Može da podnese zahtev za
-brisanje svog naloga. Jedan vlasnik može imati više vikendica.\
-● **Vlasnik broda**: ima prava pristupa osnovnom profilu klijenata koji su
-izvršili rezervaciju, kao i istoriju rezervacija. Može da popunjava izveštaj o
-završenoj rezervaciji, kao i da podnosi žalbe na klijente. Ima grafički prikaz
-kalendara zauzetosti broda, može u isti da unese period nedostupnosti
-broda. Može da izbriše brod. Može da pruža uslugu kapetana broda i
-prvog oficira. Može da podnese zahtev za brisanje svog naloga. Jedan
-vlasnik može imati više brodova.\
-● **Instruktor pecanja**: ima prava pristupa osnovnom profilu klijenata koji su
-izvršili rezervaciju, kao i istoriju rezervacija. Može da popunjava izveštaj o
-završenoj rezervaciji, kao i da podnosi žalbe na klijente. Ima grafički prikaz
-kalendara zauzetosti, može u isti da unese period nedostupnosti. Može da
-podnese zahtev za brisanje svog naloga.\
-● **Administrator sistema**: registruje nove administratore sistema, upravlja
-svim registrovanim korisnicima (vlasnicima vikendica, brodova,
-instruktorima, klijentima) vodi evidenciju o prihodima od rezervacija,
-odgovara na žalbe registrovanih korisnika, definiše loyalty program.\
-● **Neautentifikovani korisnici**: imaju mogućnost da pretražuju vikendice,
-brodove/čamce, ture sa instruktorom, da se registruju i, ako su već
-registrovani, da vrše prijavu na sistem.
+nema prava pristupa profilima drugih korisnika sistema.
+
 
 ## Implementirani funkcionalni zahtevi
 ### 1. Prikaz informacija neautentifikovanim korisnicima
